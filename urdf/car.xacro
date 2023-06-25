@@ -44,7 +44,12 @@
   <!--  -->
   <xacro:macro name="links" params="part msh color mass xyz_lnk ixx ixy ixz iyy iyz izz">
     <gazebo reference="${part}">
-      <material>Gazebo/Orange</material>
+      <xacro:if value="${color == 'white'}">
+        <material>Gazebo/White</material>
+      </xacro:if>
+      <xacro:if value="${color == 'orange'}">
+        <material>Gazebo/Orange</material>
+      </xacro:if> 
     </gazebo>
     <link
       name="${part}">
