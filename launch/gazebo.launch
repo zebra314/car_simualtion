@@ -6,7 +6,7 @@
 <arg name="gui" default="true"/>
 <arg name="headless" default="false"/>
 <arg name="debug" default="false"/>
-<arg name="model" default="$(find car_simulation)/urdf/car_simulation.urdf"/>
+<arg name="model" default="$(find car_simulation)/urdf/car.urdf"/>
 <!-- We resume the logic in empty_world.launch -->
 
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -19,7 +19,7 @@
 
 <!-- Load the URDF into the ROS Parameter Server -->
 
-<param name="robot_description" textfile="$(find car_simulation)/urdf/car_simulation.urdf" />
+<param name="robot_description" textfile="$(find car_simulation)/urdf/car.urdf" />
 
 <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 

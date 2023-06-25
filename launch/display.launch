@@ -6,7 +6,7 @@
     default="False" />
   <param
     name="robot_description"
-    textfile="$(find car_simulation)/urdf/car_simulation.urdf" />
+    textfile="$(find car_simulation)/urdf/car.urdf" />
   <param
     name="use_gui"
     value="$(arg gui)" />

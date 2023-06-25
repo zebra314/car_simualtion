@@ -16,8 +16,10 @@ for car_simulation robot</p>
   <depend>joint_state_publisher</depend>
   <depend>gazebo</depend>
   <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>rospy</depend>
   <depend>controller_manager</depend>
-  <!-- <depend>robot_state_publisher</depend> -->
+  <depend>gazebo-ros-control</depend>
   <depend>rqt_robot_steering</depend>
   
   <export>
