@@ -2,29 +2,51 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="car">
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find car_simulation)/urdf/materials.xacro" />
+  <xacro:include filename="$(find car_simulation)/urdf/car.gazebo" />
 
   <!-- Define the model path -->
-  <xacro:property name="base_link_msh" value="package://car_simulation/meshes/base_link.STL" />
+  <xacro:property name="chassis_msh" value="package://car_simulation/meshes/chassis.STL" />
   <xacro:property name="LF_wheel_msh" value="package://car_simulation/meshes/LF_wheel.STL" />
   <xacro:property name="LB_wheel_msh" value="package://car_simulation/meshes/LB_wheel.STL" />
   <xacro:property name="RF_wheel_msh" value="package://car_simulation/meshes/RF_wheel.STL" />
   <xacro:property name="RB_wheel_msh" value="package://car_simulation/meshes/RB_wheel.STL" />
-
-  <!-- Import gazebo plugins -->
-  <gazebo>
-    <plugin
-      name="gazebo_ros_control"
-      filename="libgazebo_ros_control.so">
-      <robotNamespace>/car</robotNamespace>
-    </plugin>
-  </gazebo>
+  <xacro:property name="hokuyo_msh" value="package://car_simulation/meshes/hokuyo.dae"/>
 
   <!-- Dummy link and joint used for baselink footprint -->
-  <link name="dummy"></link>
-  <joint name="dummy_jnt" type="fixed">
-    <parent link="dummy"/>
-    <child link="base_link"/>
+  <link name="base_link"></link>
+  <joint name="base_jnt" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
   </joint>
+
+  <!-- Lidar Joint -->
+  <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="hokuyo_link"/>
+  </joint>
+  
+  <!-- Lidar Link -->
+  <link name="hokuyo_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="${hokuyo_msh}"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1E-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1E-6" ixy="0" ixz="0" iyy="1E-6" iyz="0" izz="1E-6" />
+    </inertial>
+  </link>
 
   <!-- Macro for Links -->
   <xacro:macro name="links" params="part msh color mass xyz_lnk ixx ixy ixz iyy iyz izz">
@@ -78,7 +100,7 @@
         xyz="${xyz_jnt}"
         rpy="0 0 0" />
       <parent
-        link="base_link" />
+        link="chassis" />
       <child
         link="${part}"/>
       <axis
@@ -106,7 +128,7 @@
   </xacro:macro>
 
   <!-- base link setup -->
-  <xacro:links  part="base_link" msh="${base_link_msh}" color="white" mass="8"
+  <xacro:links  part="chassis" msh="${chassis_msh}" color="white" mass="8"
                 xyz_lnk="-0.00074513 -0.11739 0.055785" 
                 ixx="0.55567" ixy="-0.00039063" ixz="-0.0032652"
                 iyy="0.57391" iyz="-0.019683" izz="0.61063"/>
