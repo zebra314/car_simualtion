@@ -17,6 +17,7 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
 	respawn="false" output="screen">    
     <remap from="/joint_states" to="/car/joint_states" />
+    <!-- <remap from=""/> -->
   </node>
 
   <!-- Rviz -->
@@ -25,5 +26,12 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find car_simulation)/urdf.rviz" />
+
+  <!-- <node type="laser_scan_assembler" pkg="laser_assembler" name="my_assembler" output="screen">
+    <param name="/use_sim_time" value="true"/>
+    <remap from="scan" to="/car/laser/scan"/>
+    <param name="max_clouds" type="int" value="400" />
+    <param name="fixed_frame" type="string" value="odom" />
+  </node> -->
   
 </launch>

@@ -18,8 +18,12 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description"
-    command="$(find xacro)/xacro --inorder '$(find car_simulation)/urdf/car.xacro'" />
+  <arg name="set_sensor_lidar" default="true" />
+  <arg name="set_sensor_rplidar" default="true" />
+  <param name="robot_description" command="$(find xacro)/xacro
+  '$(find car_simulation)/urdf/car.xacro' 
+  sensor_rplidar:=$(arg set_sensor_rplidar)
+  sensor_lidar:=$(arg set_sensor_lidar)" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"

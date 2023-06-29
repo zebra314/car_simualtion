@@ -78,6 +78,6 @@ def turn(velocity):
 
 if __name__ == '__main__':
     while True:
-      forward(50000)
-    #   turn(50000)
+    #   forward(50000)
+      turn(50000)
 

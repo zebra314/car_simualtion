@@ -21,6 +21,7 @@ for car_simulation robot</p>
   <depend>controller_manager</depend>
   <depend>gazebo-ros-control</depend>
   <depend>rqt_robot_steering</depend>
+  <depend>gazebo_ros</depend>
   
   <export>
     <architecture_independent />
