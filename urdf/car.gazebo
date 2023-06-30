@@ -9,10 +9,9 @@
     </plugin>
   </gazebo>
 
-  <!-- hokuyo -->
+  <!-- Lidar -->
   <gazebo reference="hokuyo_link">
     <sensor type="ray" name="laser_sensor">
-      <!-- <topic>~/laser_scan</topic> -->
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
       <update_rate>40</update_rate>
