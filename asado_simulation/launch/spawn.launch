@@ -39,5 +39,5 @@
     RB_wheel_velocity_controller" />
 
     <!-- Show in Rviz   -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_simulation)/rviz/asado.rviz" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_simulation)/rviz/asado.rviz" /> -->
 </launch>
