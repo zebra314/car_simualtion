@@ -21,4 +21,4 @@
     roslaunch asado_teleop teleop_keyboard.launch
 ```
 
-## [Back](../README.md)
+## [Back](../README.md#setup-and-usage)

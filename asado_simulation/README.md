@@ -37,4 +37,4 @@
     rosrun asado_simulation SetJointVelocity.py  
 ```
 
-## [Back](../README.md)
+## [Back](../README.md#setup-and-usage)

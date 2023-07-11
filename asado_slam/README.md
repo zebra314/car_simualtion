@@ -18,4 +18,4 @@
     roslaunch asado_slam gmapping.launch
 ```
 
-## [Back](../README.md)
+## [Back](../README.md#setup-and-usage)
