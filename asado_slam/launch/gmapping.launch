@@ -1,6 +1,6 @@
 <launch>
     <arg name="scan_topic"  default="/asado/laser/scan" />
-    <arg name="base_frame"  default="base_link"/>
+    <arg name="base_frame"  default="chassis"/>
     <arg name="odom_frame"  default="odom"/>
     <arg name="map_frame"  default="map"/>
     

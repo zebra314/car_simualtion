@@ -49,7 +49,7 @@
   <gazebo>
     <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
       <updateRate>100.0</updateRate>
-      <robotNamespace>asado</robotNamespace>
+      <robotNamespace>/asado</robotNamespace>
       <leftFrontJoint>LF_wheel_jnt</leftFrontJoint>
       <rightFrontJoint>RF_wheel_jnt</rightFrontJoint>
       <leftRearJoint>LB_wheel_jnt</leftRearJoint>

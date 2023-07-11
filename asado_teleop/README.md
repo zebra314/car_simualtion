@@ -1,8 +1,7 @@
 ## Setup 
 - 1.A Installation for local ROS environment :
 ```bash
-    sudo apt-get install ros-$ROS_DISTRO-joy
-    sudo apt-get install ros-$ROS_DISTRO-teleop-twist-joy
+    sudo apt-get install ros-$ROS_DISTRO-joy ros-$ROS_DISTRO-teleop-twist-joy ros-$ROS_DISTRO-teleop-twist-keyboard
 ```
 
 - 1.B Installation for robostack conda environment : 
