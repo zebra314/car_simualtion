@@ -13,9 +13,20 @@
 ```
 
 ## Usage
-- 1.A Build the map using gmapping :
+- 1. Build the map using gmapping :
 ```bash
     roslaunch asado_slam gmapping.launch
 ```
+
+- 2. Save the map :
+```bash
+    rosrun map_server map_saver -f ~/map
+```
+
+- 3. Localize the robot using amcl :
+```bash
+    roslaunch asado_slam amcl.launch
+```
+
 
 ## [Back](../README.md#setup-and-usage)
