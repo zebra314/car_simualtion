@@ -13,9 +13,9 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     roslaunch asado_simulation spawn.launch
 ```  
 
-- 2. Build the map using gmapping :
+- 2. Localize the robot using amcl :   
 ```bash
-    roslaunch asado_slam gmapping.launch
+    roslaunch asado_slam amcl.launch
 ```
 
 - 3. Control pollo_asado using PS4 joystick :       
