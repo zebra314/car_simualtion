@@ -46,4 +46,6 @@
     <remap from="scan" to="$(arg scan_topic)" />
   </node>
 
+  <!-- Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_slam)/rviz/amcl.rviz" />
 </launch>
