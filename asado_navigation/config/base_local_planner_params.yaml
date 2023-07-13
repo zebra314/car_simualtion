@@ -9,3 +9,8 @@ TrajectoryPlannerROS:
   acc_lim_y: 2.5
 
   holonomic_robot: false
+
+  sim_time: 1.5
+  sim_granularity: 0.025
+  vx_samples: 18
+  vtheta_samples: 20
