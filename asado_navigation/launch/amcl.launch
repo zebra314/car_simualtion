@@ -47,5 +47,5 @@
   </node>
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" /> -->
 </launch>
