@@ -12,4 +12,7 @@
         <remap from="/cmd_vel" to="/asado/cmd_vel"/>
     </node>
 
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/move_base.rviz" />
+
 </launch> 
