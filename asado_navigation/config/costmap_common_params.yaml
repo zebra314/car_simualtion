@@ -7,6 +7,6 @@ inflation_radius: 0.55
 map_topic: map
 subscribe_to_updates: true
 
-observation_sources: point_cloud_sensor
+observation_sources: laser_scan_sensor
 
-point_cloud_sensor: {sensor_frame: hokuyo_link, data_type: LaserScan, topic: /asado/laser/scan, marking: true, clearing: true}
+laser_scan_sensor: {sensor_frame: hokuyo_link, data_type: LaserScan, topic: /asado/laser/scan, marking: true, clearing: true}
