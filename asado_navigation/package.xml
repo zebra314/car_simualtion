@@ -1,5 +1,5 @@
 <package format="2">
-  <name>asado_slam</name>
+  <name>asado_navigation</name>
   <version>1.0.0</version>
   <description>
     <p>URDF Description package for asado_simulation</p>

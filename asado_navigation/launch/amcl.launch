@@ -1,7 +1,7 @@
 <launch>
 
   <!-- Run the map server -->
-  <arg name="map_file" default="$(find asado_slam)/maps/27_TDK_map.yaml" />
+  <arg name="map_file" default="$(find asado_navigation)/maps/27_TDK_map.yaml" />
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <arg name="use_map_topic" default="true" />
@@ -47,5 +47,5 @@
   </node>
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_slam)/rviz/amcl.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" />
 </launch>

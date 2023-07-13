@@ -15,7 +15,7 @@
 ## Usage
 - 1. Build the map using gmapping :
 ```bash
-    roslaunch asado_slam gmapping.launch
+    roslaunch asado_navigation gmapping.launch
 ```
 
 - 2. Save the map :
@@ -25,8 +25,12 @@
 
 - 3. Localize the robot using amcl :
 ```bash
-    roslaunch asado_slam amcl.launch
+    roslaunch asado_navigation amcl.launch
 ```
 
+- 4. Navigate the robot using rviz :
+```bash
+    roslaunch asado_navigation move_base.launch
+```
 
 ## [Back](../README.md#setup-and-usage)

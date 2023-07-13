@@ -4,7 +4,7 @@
     <arg name="odom_frame"  default="odom"/>
     <arg name="map_frame"  default="map"/>
     
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_slam)/rviz/gmapping.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/gmapping.rviz" />
   
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
       <param name="base_frame" value="$(arg base_frame)"/>

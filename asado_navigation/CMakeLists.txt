@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(asado_slam)
+project(asado_navigation)
 
 find_package(catkin REQUIRED)
 
