@@ -1,7 +1,7 @@
 <launch>
     <!-- Arguments -->
     <arg name="spawn_x" default="0"/>
-    <arg name="spawn_y" default="0"/>
+    <arg name="spawn_y" default="3"/>
     <arg name="spawn_z" default="0.23"/>
     <arg name="rviz" default="false"/>
 
