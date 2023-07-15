@@ -7,9 +7,6 @@
 - 1.B Installation for robostack conda environment : 
 ```bash
     mamba install -c robostack ros-$ROS_DISTRO-gmapping ros-$ROS_DISTRO-map-server 
-    
-    # robostack does not have ros-$ROS_DISTRO-navigation
-    # use virtualbox or local env instead
 ```
 
 ## Usage
