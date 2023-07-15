@@ -65,9 +65,9 @@ Visualization Manager:
           Value: true
         RF_wheel:
           Value: true
-        footprint:
-          Value: true
         chassis:
+          Value: true
+        footprint:
           Value: true
         hokuyo_link:
           Value: true
@@ -128,15 +128,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         hokuyo_link:
           Alpha: 1
           Show Axes: false
@@ -234,6 +234,15 @@ Visualization Manager:
       Topic: /move_base/TrajectoryPlannerROS/global_plan
       Unreliable: false
       Value: true
+    - Alpha: 1
+      Class: rviz/Polygon
+      Color: 25; 255; 0
+      Enabled: true
+      Name: Polygon
+      Queue Size: 10
+      Topic: /move_base/local_costmap/footprint
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -262,7 +271,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 7.598546981811523
+      Distance: 6.946375846862793
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -270,17 +279,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.8066151142120361
-        Y: -2.0090343952178955
-        Z: 3.1686327019997407e-06
+        X: -0.5245882868766785
+        Y: 0.44287991523742676
+        Z: 3.5262605706520844e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5703984498977661
+      Pitch: 0.4152030944824219
       Target Frame: footprint
-      Yaw: 4.701758861541748
+      Yaw: 4.7217631340026855
     Saved: ~
 Window Geometry:
   Displays:
@@ -299,4 +308,4 @@ Window Geometry:
     collapsed: true
   Width: 1200
   X: 510
-  Y: 27
+  Y: 0

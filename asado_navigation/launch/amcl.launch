@@ -1,37 +1,45 @@
 <launch>
 
-  <!-- Run the map server -->
   <arg name="map_file" default="$(find asado_navigation)/maps/27_TDK_map.yaml" />
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
+  <arg name="rviz" default="false"/>
   <arg name="use_map_topic" default="true" />
   <arg name="scan_topic" default="/asado/laser/scan" />
+  <arg name="initial_pose_x" default="0"/>
+  <arg name="initial_pose_y" default="0"/>
+  <arg name="initial_pose_a" default="-0.05"/>
+  
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
+  <!-- Localize the robot using amcl -->
   <node pkg="amcl" type="amcl" name="amcl">
+    <param name="initial_pose_x" value="$(arg initial_pose_x)"/>
+    <param name="initial_pose_y" value="$(arg initial_pose_y)"/>
+    <param name="initial_pose_a" value="$(arg initial_pose_a)"/>
     <param name="use_map_topic" value="$(arg use_map_topic)" />
-    <!-- Publish scans from best pose at a max of 10 Hz -->
-    <param name="odom_model_type" value="diff" />
+    <param name="odom_model_type" value="diff-corrected" />
     <param name="odom_alpha5" value="0.1" />
-    <param name="gui_publish_rate" value="10.0" />   <!-- 10.0 -->
+    <param name="gui_publish_rate" value="10.0" /> 
     <param name="laser_max_beams" value="60" />
     <param name="laser_max_range" value="12.0" />
     <param name="min_particles" value="500" />
     <param name="max_particles" value="2000" />
     <param name="kld_err" value="0.05" />
     <param name="kld_z" value="0.99" />
+
+    <!-- Expect noise -->
     <param name="odom_alpha1" value="0" />
     <param name="odom_alpha2" value="0" />
-    <!-- translation std dev, m -->
     <param name="odom_alpha3" value="0" />
     <param name="odom_alpha4" value="0" />
+
     <param name="laser_z_hit" value="0.5" />
     <param name="laser_z_short" value="0.05" />
     <param name="laser_z_max" value="0.05" />
     <param name="laser_z_rand" value="0.5" />
     <param name="laser_sigma_hit" value="0.2" />
     <param name="laser_lambda_short" value="0.1" />
-    <!-- <param name="laser_model_type" value="likelihood_field" /> -->
-    <param name="laser_model_type" value="beam"/>
+    <param name="laser_model_type" value="likelihood_field"/>
     <param name="laser_likelihood_max_dist" value="2.0" />
     <param name="update_min_d" value="0.25" />
     <param name="update_min_a" value="0.2" />
@@ -39,7 +47,6 @@
     <param name="base_frame_id" value="chassis"/>
     <param name="global_frame_id" value="map" />
     <param name="resample_interval" value="1" />
-    <!-- Increase tolerance because the computer can get quite busy -->
     <param name="transform_tolerance" value="1.0" />
     <param name="recovery_alpha_slow" value="0.0" />
     <param name="recovery_alpha_fast" value="0.0" />
@@ -47,5 +54,7 @@
   </node>
 
   <!-- Rviz -->
-  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" 
+  if="$(arg rviz)"/>
+
 </launch>
