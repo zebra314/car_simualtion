@@ -21,13 +21,13 @@
     </gui>
 
     <model name="map">
-      <pose>-5 0 0 1.5708 -0 0</pose>
+      <pose>-5.945 -0.55 0 1.5708 -0 0</pose> <!-- meter -->
       <static>true</static>
       <link name="map">
         <visual name="visual">
           <geometry>
             <mesh>
-              <uri>../worlds/27_TDK_map.STL</uri>
+              <uri>../worlds/27_TDK.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -38,7 +38,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>../worlds/27_TDK_map.STL</uri>
+              <uri>../worlds/27_TDK.STL</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
