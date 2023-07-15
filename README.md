@@ -3,7 +3,7 @@
 A ROS package for simulating a mobile robot with four wheels in Gazebo.
 
 ## Setup and Usage
-- [description](asado_description/README.md)   
+- [Description](asado_description/README.md)   
 - [Navigation](asado_navigation/README.md)
 - [Teleop](asado_teleop/README.md)   
 
