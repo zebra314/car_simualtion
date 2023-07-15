@@ -47,7 +47,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: base_link
+      Reference Frame: footprint
       Value: true
     - Class: rviz/TF
       Enabled: true
@@ -62,11 +62,13 @@ Visualization Manager:
           Value: true
         RF_wheel:
           Value: true
-        base_link:
-          Value: true
         chassis:
           Value: true
+        footprint:
+          Value: true
         hokuyo_link:
+          Value: true
+        odom:
           Value: true
       Marker Alpha: 1
       Marker Scale: 1
@@ -75,18 +77,19 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          chassis:
-            LB_wheel:
-              {}
-            LF_wheel:
-              {}
-            RB_wheel:
-              {}
-            RF_wheel:
-              {}
-            hokuyo_link:
-              {}
+        odom:
+          footprint:
+            chassis:
+              LB_wheel:
+                {}
+              LF_wheel:
+                {}
+              RB_wheel:
+                {}
+              RF_wheel:
+                {}
+              hokuyo_link:
+                {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -119,15 +122,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         hokuyo_link:
           Alpha: 1
           Show Axes: false
@@ -171,7 +174,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -195,7 +198,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 4.4265217781066895
+      Distance: 6.9652180671691895
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -203,17 +206,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.3092973828315735
-        Y: 0.5004184246063232
-        Z: -5.268552740744781e-07
+        X: 0.01068473607301712
+        Y: -0.458355188369751
+        Z: -8.844831427268218e-07
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.13039860129356384
-      Target Frame: base_link
-      Yaw: 4.876760482788086
+      Pitch: 0.4653984606266022
+      Target Frame: footprint
+      Yaw: 4.726761341094971
     Saved: ~
 Window Geometry:
   Displays:
@@ -232,4 +235,4 @@ Window Geometry:
     collapsed: true
   Width: 1200
   X: 510
-  Y: 27
+  Y: 0

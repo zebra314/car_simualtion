@@ -12,10 +12,10 @@
   <xacro:property name="RB_wheel_msh" value="package://asado_description/meshes/RB_wheel.STL" />
   <xacro:property name="hokuyo_msh" value="package://asado_description/meshes/hokuyo.dae" />
 
-  <!-- Dummy link and joint used for baselink footprint -->
-  <link name="base_link"></link>
+  <!-- Dummy link and joint used for footprint -->
+  <link name="footprint"></link>
   <joint name="base_jnt" type="fixed">
-    <parent link="base_link" />
+    <parent link="footprint" />
     <child link="chassis" />
   </joint>
 

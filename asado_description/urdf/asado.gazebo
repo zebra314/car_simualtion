@@ -56,7 +56,7 @@
       <rightRearJoint>RB_wheel_jnt</rightRearJoint>
       <wheelSeparation>0.4</wheelSeparation>
       <wheelDiameter>0.215</wheelDiameter>
-      <robotBaseFrame>base_link</robotBaseFrame>
+      <robotBaseFrame>footprint</robotBaseFrame>
       <MaxForce>5.0</MaxForce>
       <torque>200</torque>
       <commandTopic>cmd_vel</commandTopic>
