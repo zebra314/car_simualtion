@@ -1,5 +1,7 @@
 <launch>
 
+    <arg name="rviz" default="true"/>
+
     <!---Run AMCL -->
     <include file="$(find asado_navigation)/launch/amcl.launch" />
 
@@ -13,6 +15,7 @@
     </node>
 
     <!-- Rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/move_base.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/move_base.rviz" 
+    if="$(arg rviz)"/>
 
 </launch> 
