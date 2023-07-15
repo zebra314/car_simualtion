@@ -51,7 +51,7 @@ Visualization Manager:
         Z: 0
       Plane: XY
       Plane Cell Count: 10
-      Reference Frame: base_link
+      Reference Frame: footprint
       Value: true
     - Class: rviz/TF
       Enabled: true
@@ -66,7 +66,7 @@ Visualization Manager:
           Value: true
         RF_wheel:
           Value: true
-        base_link:
+        footprint:
           Value: true
         chassis:
           Value: true
@@ -85,7 +85,7 @@ Visualization Manager:
       Tree:
         map:
           odom:
-            base_link:
+            footprint:
               chassis:
                 LB_wheel:
                   {}
@@ -129,7 +129,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        base_link:
+        footprint:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -208,7 +208,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -249,7 +249,7 @@ Visualization Manager:
       Name: Current View
       Near Clip Distance: 0.009999999776482582
       Pitch: 0.5703984498977661
-      Target Frame: base_link
+      Target Frame: footprint
       Yaw: 4.72175931930542
     Saved: ~
 Window Geometry:
