@@ -1,43 +1,46 @@
 <launch>
+    <!-- Arguments -->
+    <arg name="spawn_x" default="0"/>
+    <arg name="spawn_y" default="3.5"/>
+    <arg name="spawn_z" default="1"/>
+    <arg name="rviz" default="false"/>
+
     <!-- Load the world -->
-    <include file="$(find asado_description)/launch/world.launch" />
+    <include file="$(find asado_description)/launch/world.launch"/>
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find asado_description)/config/control.yaml" command="load" />
+    <rosparam file="$(find asado_description)/config/control.yaml" command="load"/>
 
     <!-- Load the URDF into the ROS Parameter Server -->
-    <arg name="set_sensor_lidar" default="true" />
-    <arg name="set_sensor_rplidar" default="true" />
     <param name="robot_description"
-        command="$(find xacro)/xacro 
-    '$(find asado_description)/urdf/asado.xacro' 
-    sensor_rplidar:=$(arg set_sensor_rplidar)
-    sensor_lidar:=$(arg set_sensor_lidar)" />
+        command="$(find xacro)/xacro '$(find asado_description)/urdf/asado.xacro'"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-        args="-urdf -model asado -param robot_description -x 0 -y 3.5 -z 1" />
+        args="-urdf -model asado -param robot_description 
+        -x $(arg spawn_x) -y $(arg spawn_y) -z $(arg spawn_z)"/>
 
-    <!-- send fake joint values -->
+    <!-- Send fake joint values -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-        <param name="use_gui" value="TRUE" />
+        <param name="use_gui" value="true"/>
     </node>
 
     <!-- Convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen">
-        <remap from="/joint_states" to="/asado/joint_states" />
+        <remap from="/joint_states" to="/asado/joint_states"/>
     </node>
 
     <!-- Load the controllers -->
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
         output="screen" ns="/asado"
         args="joint_state_controller
-    LF_wheel_velocity_controller  
-	LB_wheel_velocity_controller
-    RF_wheel_velocity_controller
-    RB_wheel_velocity_controller" />
+        LF_wheel_velocity_controller  
+	    LB_wheel_velocity_controller
+        RF_wheel_velocity_controller
+        RB_wheel_velocity_controller"/>
 
-    <!-- Show in Rviz   -->
-    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_description)/rviz/asado.rviz" /> -->
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_description)/rviz/asado.rviz" 
+        if='$(arg rviz)'/>
 </launch>
