@@ -31,10 +31,5 @@
 ```bash    
     roslaunch asado_description spawn.launch
 ```   
-   
-- 2. Example of Moving Joints :
-```bash   
-    rosrun asado_description SetJointVelocity.py  
-```
 
 ## [Back](../README.md#setup-and-usage)
