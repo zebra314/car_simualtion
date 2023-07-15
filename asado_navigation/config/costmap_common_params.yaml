@@ -14,8 +14,10 @@ subscribe_to_updates: true
 
 obstacle_layer:
     enabled: true
-    obstacle_range: 1.0 # 規劃時考慮幾公尺內的障礙物
-    raytrace_range: 1.5 # 清除幾公尺內的障礙物
+
+    obstacle_range: 3.0 # 規劃時考慮幾公尺內的障礙物
+    raytrace_range: 3.5 # 清除幾公尺內的障礙物
+
     max_obstacle_height: 0.5 # 障礙物最大高度
     min_obstacle_height: 0.0 # 障礙物最小高度
     unknown_threshold: 15 # 未知區域的閥值
@@ -27,7 +29,7 @@ obstacle_layer:
     z_voxels: 2
     publish_voxel_map: false
     observation_sources: laser_scan_sensor
-    laser_scan_sensor: {sensor_frame: hokuyo_link, data_type: LaserScan, topic: /asado/laser/scan, marking: true, clearing: true}
+    laser_scan_sensor: {sensor_frame: hokuyo_link, data_type: LaserScan, topic: asado/laser/scan, marking: true, clearing: true}
 
 inflation_layer:
     enabled: true

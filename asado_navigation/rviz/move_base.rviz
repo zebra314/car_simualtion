@@ -243,6 +243,26 @@ Visualization Manager:
       Topic: /move_base/local_costmap/footprint
       Unreliable: false
       Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: local cost map
+      Topic: /move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: global cost map
+      Topic: /move_base/global_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -279,17 +299,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.5245882868766785
-        Y: 0.44287991523742676
+        X: 0.20957905054092407
+        Y: 0.9650700092315674
         Z: 3.5262605706520844e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4152030944824219
+      Pitch: 0.9352026581764221
       Target Frame: footprint
-      Yaw: 4.7217631340026855
+      Yaw: 4.701762676239014
     Saved: ~
 Window Geometry:
   Displays:
@@ -308,4 +328,4 @@ Window Geometry:
     collapsed: true
   Width: 1200
   X: 510
-  Y: 0
+  Y: 27
