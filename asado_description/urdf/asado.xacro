@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="asado">
   <!-- Import Rviz colors -->
-  <xacro:include filename="$(find asado_simulation)/urdf/materials.xacro" />
-  <xacro:include filename="$(find asado_simulation)/urdf/asado.gazebo" />
+  <xacro:include filename="$(find asado_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find asado_description)/urdf/asado.gazebo" />
 
   <!-- Define the model path -->
-  <xacro:property name="chassis_msh" value="package://asado_simulation/meshes/chassis.STL" />
-  <xacro:property name="LF_wheel_msh" value="package://asado_simulation/meshes/LF_wheel.STL" />
-  <xacro:property name="LB_wheel_msh" value="package://asado_simulation/meshes/LB_wheel.STL" />
-  <xacro:property name="RF_wheel_msh" value="package://asado_simulation/meshes/RF_wheel.STL" />
-  <xacro:property name="RB_wheel_msh" value="package://asado_simulation/meshes/RB_wheel.STL" />
-  <xacro:property name="hokuyo_msh" value="package://asado_simulation/meshes/hokuyo.dae" />
+  <xacro:property name="chassis_msh" value="package://asado_description/meshes/chassis.STL" />
+  <xacro:property name="LF_wheel_msh" value="package://asado_description/meshes/LF_wheel.STL" />
+  <xacro:property name="LB_wheel_msh" value="package://asado_description/meshes/LB_wheel.STL" />
+  <xacro:property name="RF_wheel_msh" value="package://asado_description/meshes/RF_wheel.STL" />
+  <xacro:property name="RB_wheel_msh" value="package://asado_description/meshes/RB_wheel.STL" />
+  <xacro:property name="hokuyo_msh" value="package://asado_description/meshes/hokuyo.dae" />
 
   <!-- Dummy link and joint used for baselink footprint -->
   <link name="base_link"></link>

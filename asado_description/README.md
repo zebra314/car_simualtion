@@ -29,12 +29,12 @@
 ## Usage   
 - 1. Spawn the model in Gazebo world :   
 ```bash    
-    roslaunch asado_simulation spawn.launch
+    roslaunch asado_description spawn.launch
 ```   
    
 - 2. Example of Moving Joints :
 ```bash   
-    rosrun asado_simulation SetJointVelocity.py  
+    rosrun asado_description SetJointVelocity.py  
 ```
 
 ## [Back](../README.md#setup-and-usage)

@@ -3,14 +3,14 @@
 A ROS package for simulating a mobile robot with four wheels in Gazebo.
 
 ## Setup and Usage
-- [Simulation](asado_simulation/README.md)   
+- [description](asado_description/README.md)   
 - [Navigation](asado_navigation/README.md)
 - [Teleop](asado_teleop/README.md)   
 
 ## Quick Start
 - 1. Spawn the model in Gazebo world :   
 ```bash    
-    roslaunch asado_simulation spawn.launch
+    roslaunch asado_description spawn.launch
 ```  
 
 - 2. Localize the robot using amcl :   

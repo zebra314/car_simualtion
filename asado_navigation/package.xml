@@ -2,9 +2,9 @@
   <name>asado_navigation</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for asado_simulation</p>
+    <p>URDF Description package for asado_description</p>
     <p>This package contains configuration data, 3D models and launch files
-for asado_simulation robot</p>
+for asado_description robot</p>
   </description>
   <author>TODO</author>
   <maintainer email="kidalfonso@email.com" />

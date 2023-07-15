@@ -9,7 +9,7 @@
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find asado_simulation)/worlds/asado.world"/>
+    <arg name="world_name" value="$(find asado_description)/worlds/asado.world"/>
     <arg name="debug" value="$(arg debug)" />
     <!-- <arg name="verbose" value="true"/> -->
     <arg name="gui" value="$(arg gui)" />

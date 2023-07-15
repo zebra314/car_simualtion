@@ -1,16 +1,16 @@
 <launch>
     <!-- Load the world -->
-    <include file="$(find asado_simulation)/launch/world.launch" />
+    <include file="$(find asado_description)/launch/world.launch" />
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find asado_simulation)/config/control.yaml" command="load" />
+    <rosparam file="$(find asado_description)/config/control.yaml" command="load" />
 
     <!-- Load the URDF into the ROS Parameter Server -->
     <arg name="set_sensor_lidar" default="true" />
     <arg name="set_sensor_rplidar" default="true" />
     <param name="robot_description"
         command="$(find xacro)/xacro 
-    '$(find asado_simulation)/urdf/asado.xacro' 
+    '$(find asado_description)/urdf/asado.xacro' 
     sensor_rplidar:=$(arg set_sensor_rplidar)
     sensor_lidar:=$(arg set_sensor_lidar)" />
 
@@ -39,5 +39,5 @@
     RB_wheel_velocity_controller" />
 
     <!-- Show in Rviz   -->
-    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_simulation)/rviz/asado.rviz" /> -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_description)/rviz/asado.rviz" /> -->
 </launch>
