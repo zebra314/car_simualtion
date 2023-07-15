@@ -4,8 +4,8 @@
   <include file="$(find asado_test)/launch/amcl.launch" />
 
   <!-- <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/> -->
-  <arg name="cmd_vel_topic" default="/asado/cmd_vel" />
-  <arg name="odom_topic" default="odom" />
+  <arg name="cmd_vel_topic" default="asado/cmd_vel" />
+  <arg name="odom_topic" default="/odom" />
   <arg name="move_forward_only" default="false"/>
 
   <!-- move_base -->
