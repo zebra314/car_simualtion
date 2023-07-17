@@ -40,6 +40,6 @@
 
   <!-- Plugin -->
   <xacro:gazebo_ros_control />
-  <xacro:gazebo_ros_control />
+  <xacro:skid_steer_drive_controller />
 
 </robot>

@@ -1,7 +1,6 @@
 <launch>
 
   <arg name="map_file" default="$(find asado_navigation)/maps/27_TDK_map.yaml" />
-  <arg name="rviz" default="false"/>
   <arg name="use_map_topic" default="true" />
   <arg name="scan_topic" default="asado/laser/scan" />
   <arg name="initial_pose_x" default="0"/>
@@ -54,9 +53,5 @@
     <remap from="scan" to="$(arg scan_topic)" />
     <remap from="/odom" to="/asado/odom" />
   </node>
-
-  <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" 
-  if="$(arg rviz)"/>
 
 </launch>

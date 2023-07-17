@@ -5,12 +5,15 @@
 	<arg name="spawn_z" default="0.23"/>
 	<arg name="rviz" default="false"/>
 
+	<!-- World -->
 	<include file="$(find asado_gazebo)/launch/world.launch" />
-	<include file="$(find asado_control)/launch/asado_control.launch" />
+
+	<!-- Controller -->
+	<include file="$(find asado_control)/launch/control.launch" />
 
 	<!-- Load the URDF into the ROS Parameter Server -->
-	<param name="robot_description"
-		command="$(find xacro)/xacro '$(find asado_description)/urdf/asado.xacro'" />
+	<param name="robot_description" command="$(find xacro)/xacro 
+		'$(find asado_description)/urdf/asado.xacro'" />
 
 	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
 	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"

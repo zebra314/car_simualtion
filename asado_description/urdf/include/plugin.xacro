@@ -12,7 +12,7 @@
 	</xacro:macro>
 
 	<!-- skid_steer_drive_controller -->
-	<xacro:macro name="gazebo_ros_control" params="">
+	<xacro:macro name="skid_steer_drive_controller" params="">
 		<gazebo>
 			<plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
 				<updateRate>100.0</updateRate>

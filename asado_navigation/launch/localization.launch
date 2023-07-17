@@ -1,0 +1,15 @@
+<launch>
+
+    <arg name="rviz" default="true"/>
+
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/amcl.rviz" 
+      if="$(arg rviz)"/>
+      
+    <!-- Spawn the robot -->
+    <include file="$(find asado_gazebo)/launch/spawn.launch" />
+
+    <!-- AMCL -->
+    <include file="$(find asado_navigation)/launch/include/amcl.launch" />
+  
+</launch>

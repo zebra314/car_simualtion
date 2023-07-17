@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="rviz" default="true"/>
+
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/move_base.rviz" 
+        if="$(arg rviz)"/>
+
+    <!-- Spawn the robot -->
+    <include file="$(find asado_gazebo)/launch/spawn.launch" />
+
+    <!---Run AMCL -->
+    <include file="$(find asado_navigation)/launch/include/amcl.launch" />
+
+    <!-- Run Move Base -->
+    <include file="$(find asado_navigation)/launch/include/move_base.launch" />
+
+</launch> 

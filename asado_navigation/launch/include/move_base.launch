@@ -1,12 +1,6 @@
 <launch>
 
-    <arg name="rviz" default="true"/>
-
-    <include file="$(find asado_description)/launch/spawn.launch"/>
-
-    <!---Run AMCL -->
-    <include file="$(find asado_navigation)/launch/amcl.launch" />
-
+    <!-- Move Base -->
     <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
         <rosparam file="$(find asado_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
         <rosparam file="$(find asado_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
@@ -16,9 +10,5 @@
         <rosparam file="$(find asado_navigation)/config/move_base_params.yaml" command="load" />
         <remap from="/cmd_vel" to="asado/cmd_vel"/>
     </node>
-
-    <!-- Rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find asado_navigation)/rviz/move_base.rviz" 
-    if="$(arg rviz)"/>
 
 </launch> 
