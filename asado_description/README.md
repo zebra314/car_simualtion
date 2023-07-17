@@ -2,7 +2,7 @@
 - 1.A Installation for local ROS environment :   
 ```bash
     # Install the dependencies
-    sudo apt-get install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros    ros-noetic-gazebo-ros-control ros-noetic-velocity-controllers ros-noetic-joint-state-controller ros-noetic-controller-manager ros-noetic-laser-assembler 
+    sudo apt-get install ros-$ROS_DISTRO-gazebo-ros-pkgs ros-$ROS_DISTRO-gazebo-ros ros-$ROS_DISTRO-gazebo-ros-control ros-$ROS_DISTRO-velocity-controllers ros-$ROS_DISTRO-joint-state-controller ros-$ROS_DISTRO-controller-manager ros-$ROS_DISTRO-laser-assembler 
 ```   
    
 - 1.B Installation for robostack conda environment : 
@@ -27,7 +27,7 @@
 ```  
 
 ## Usage   
-- 1. Spawn the model in Gazebo world :   
+- 1. Spawn the model in Gazebo :   
 ```bash    
     roslaunch asado_description spawn.launch
 ```   
