@@ -1,0 +1,33 @@
+link:
+  name: 'RF_wheel'
+  msh: 'package://asado_description/meshes/RF_wheel.STL'
+  color: 'orange'
+  mass: 0.8
+  x: 0.032026 
+  y: 6.9389E-17
+  z: 0
+  ixx: 0.0018121
+  ixy: 1.1755E-35
+  ixz: 2.5636E-20
+  iyy: 0.00096656
+  iyz: 3.8844E-35
+  izz: 0.00096656
+  mu1: 1.5
+  mu2: 1.5
+  kp: 10000000.0
+  kd: 10000
+joint:
+  name: 'RF_wheel_jnt'
+  child_link: 'RF_wheel'
+  x: 0.27208 
+  y: 0.1695 
+  z: -0.1241
+  x_axs: -1
+  effort: 5
+  velocity: 100000
+  damping: 0.8
+transmission:
+  name: 'RF_wheel_trans'
+  jnt: 'RF_wheel_jnt'
+  actuator: 'RF_wheel_actuator'
+  reduction: 1

@@ -1,0 +1,18 @@
+link:
+  name: 'chassis'
+  msh: 'package://asado_description/meshes/chassis.STL'
+  color: 'white'
+  mass: 8
+  x: -0.00074513
+  y: -0.11739
+  z: 0.055785
+  ixx: 0.55567
+  ixy: -0.00039063
+  ixz: -0.0032652
+  iyy: 0.57391
+  iyz: -0.019683
+  izz: 0.61063
+  mu1: 1.5
+  mu2: 1.5
+  kp: 10000000.0
+  kd: 10000
