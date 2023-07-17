@@ -1,0 +1,23 @@
+<launch>
+
+    <!-- Load controller configurations from YAML file to parameter server -->
+    <rosparam command="load" file="$(find asado_control)/config/asado_control.yaml" />
+
+    <!-- Load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" ns="/asado" args="joint_state_controller 
+        LF_wheel_velocity_controller LB_wheel_velocity_controller
+        RF_wheel_velocity_controller RB_wheel_velocity_controller" />
+
+    <!-- Send fake joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="false"/>
+    </node>
+
+    <!-- Convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+        <remap from="/joint_states" to="/asado/joint_states"/>
+    </node>
+
+</launch>

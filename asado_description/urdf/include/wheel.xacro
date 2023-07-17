@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="asado">
+  
+  <xacro:macro name="wheel" params="wheel_props">
+
+    <!-- Link -->
+    <gazebo reference="${wheel_props['link']['name']}">
+      <xacro:if value="${wheel_props['link']['color'] == 'white'}">
+        <material>Gazebo/White</material>
+      </xacro:if>
+      <xacro:if value="${wheel_props['link']['color'] == 'orange'}">
+        <material>Gazebo/Orange</material>
+      </xacro:if>
+			<xacro:if value="${wheel_props['link']['color'] == 'blue'}">
+        <material>Gazebo/Blue</material>
+      </xacro:if>
+			<xacro:if value="${wheel_props['link']['color'] == 'green'}">
+        <material>Gazebo/Green</material>
+      </xacro:if>
+      <mu1 value="${wheel_props['link']['mu1']}" />
+      <mu2 value="${wheel_props['link']['mu2']}" />
+      <kp value="${wheel_props['link']['kp']}" />
+      <kd value="${wheel_props['link']['kd']}" />
+      <fdir1 value="0 0 0" />
+    </gazebo>
+    <link name="${wheel_props['link']['name']}">
+      <inertial>
+        <origin xyz="${wheel_props['link']['x']} ${wheel_props['link']['y']} ${wheel_props['link']['z']}" rpy="0 0 0" />
+        <mass value="${wheel_props['link']['mass']}" />
+        <inertia ixx="${wheel_props['link']['ixx']}" ixy="${wheel_props['link']['ixy']}" ixz="${wheel_props['link']['ixz']}"
+          iyy="${wheel_props['link']['iyy']}" iyz="${wheel_props['link']['iyz']}" izz="${wheel_props['link']['izz']}" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${wheel_props['link']['msh']}" />
+        </geometry>
+        <material name="${wheel_props['link']['color']}" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${wheel_props['link']['msh']}" />
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Joint -->
+    <joint name="${wheel_props['joint']['name']}" type="continuous">
+      <origin xyz="${wheel_props['joint']['x']} ${wheel_props['joint']['y']} ${wheel_props['joint']['z']}" rpy="0 0 0" />
+      <parent link="chassis" />
+      <child link="${wheel_props['joint']['child_link']}" />
+      <axis xyz="${wheel_props['joint']['x_axs']} 0 0" />
+      <limit effort="${wheel_props['joint']['effort']}" velocity="${wheel_props['joint']['velocity']}" />
+      <dynamics damping="${wheel_props['joint']['damping']}" />
+    </joint>
+
+    <!-- Macro for Wheel transmission -->
+    <transmission name="${wheel_props['transmission']['name']}">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${wheel_props['transmission']['jnt']}">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${wheel_props['transmission']['actuator']}">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction value="${wheel_props['transmission']['reduction']}" />
+      </actuator>
+    </transmission>
+  </xacro:macro>
+  
+</robot>
