@@ -2,6 +2,8 @@
 
     <arg name="rviz" default="true"/>
 
+    <include file="$(find asado_description)/launch/spawn.launch"/>
+
     <!---Run AMCL -->
     <include file="$(find asado_navigation)/launch/amcl.launch" />
 
@@ -11,7 +13,8 @@
         <rosparam file="$(find asado_navigation)/config/local_costmap_params.yaml" command="load" />
         <rosparam file="$(find asado_navigation)/config/global_costmap_params.yaml" command="load" />
         <rosparam file="$(find asado_navigation)/config/base_local_planner_params.yaml" command="load" />
-        <remap from="/cmd_vel" to="/asado/cmd_vel"/>
+        <rosparam file="$(find asado_navigation)/config/move_base_params.yaml" command="load" />
+        <remap from="/cmd_vel" to="asado/cmd_vel"/>
     </node>
 
     <!-- Rviz -->
