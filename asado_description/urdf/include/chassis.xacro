@@ -8,6 +8,9 @@
 		<joint name="footprint_jnt" type="fixed">
 			<parent link="footprint" />
 			<child link="chassis" />
+
+      <!-- Rotate 90 degrees along z-axis -->
+      <origin rpy="0 0 -1.5708" />
 		</joint>
 
 		<!-- Link -->
