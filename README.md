@@ -13,19 +13,21 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 - Installation for local ROS environment :  
 ```bash
     sudo apt-get install 
-    ros-$ROS_DISTRO-joy 
-    ros-$ROS_DISTRO-teleop-twist-joy 
-    ros-$ROS_DISTRO-teleop-twist-keyboard 
-    ros-$ROS_DISTRO-gmapping 
-    ros-$ROS_DISTRO-map-server 
-    ros-$ROS_DISTRO-navigation 
-    ros-$ROS_DISTRO-gazebo-ros-pkgs 
-    ros-$ROS_DISTRO-gazebo-ros 
-    ros-$ROS_DISTRO-gazebo-ros-control 
     ros-$ROS_DISTRO-velocity-controllers 
     ros-$ROS_DISTRO-joint-state-controller 
     ros-$ROS_DISTRO-controller-manager 
+    ros-$ROS_DISTRO-joint_state_publisher
+    ros-$ROS_DISTRO-joint_state_publisher_gui
     ros-$ROS_DISTRO-laser-assembler 
+    ros-$ROS_DISTRO-gazebo-ros-pkgs 
+    ros-$ROS_DISTRO-gazebo-ros 
+    ros-$ROS_DISTRO-gazebo-ros-control 
+    ros-$ROS_DISTRO-gmapping 
+    ros-$ROS_DISTRO-map-server 
+    ros-$ROS_DISTRO-navigation 
+    ros-$ROS_DISTRO-joy 
+    ros-$ROS_DISTRO-teleop-twist-joy 
+    ros-$ROS_DISTRO-teleop-twist-keyboard 
 ```   
 
 - Installation for robostack conda environment :  
@@ -53,7 +55,8 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 ```bash    
     # bash-1
     roslaunch asado_gazebo spawn.launch
-
+```
+```bash
     # bash-2
     roslaunch asado_teleop teleop.launch
 ```  

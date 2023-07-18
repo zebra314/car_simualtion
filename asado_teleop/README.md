@@ -1,23 +1,23 @@
-## Setup 
-- 1.A Installation for local ROS environment :
+## Dependencies
 ```bash
-    sudo apt-get install ros-$ROS_DISTRO-joy ros-$ROS_DISTRO-teleop-twist-joy ros-$ROS_DISTRO-teleop-twist-keyboard
-```
-
-- 1.B Installation for robostack conda environment : 
-```bash
-    mamba install -c robostack ros-$ROS_DISTRO-joy ros-$ROS_DISTRO-teleop-twist-joy
+    ros-$ROS_DISTRO-joy
+    ros-$ROS_DISTRO-teleop-twist-joy       
+    ros-$ROS_DISTRO-teleop-twist-keyboard   
 ```
 
 ## Usage
-- 1.A Control pollo_asado using PS4 joystick :       
-```bash
-    roslaunch asado_teleop teleop_joystick.launch
-```   
+- [teleop.launch](./launch/teleop.launch)
+    - The robot needs to be set up first, either [in gazebo](../asado_gazebo/README.md) or [in real life](../asado_bringup/README.md), then launch this node to control the robot.  
 
-- 1.B Control pollo_asado using keyboard (Current not functional in robostack env) :
-```bash
-    roslaunch asado_teleop teleop_keyboard.launch
-```
+    - Control the robot with joystick (default) :
+    ```bash
+        roslaunch asado_teleop teleop.launch 
+    ```
+    
+    - Control the robot with keyboard :
+    ```bash
+        roslaunch asado_teleop teleop.launch method:=keyboard
+    ```
 
-## [Back](../README.md#setup-and-usage)
+
+## [Back](../README.md#usage)

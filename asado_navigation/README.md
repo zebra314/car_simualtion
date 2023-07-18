@@ -1,33 +1,21 @@
-## Setup
-- 1.A Installation for local ROS environment :
+## Dependencies
 ```bash
-    sudo apt-get install ros-$ROS_DISTRO-gmapping ros-$ROS_DISTRO-map-server ros-$ROS_DISTRO-navigation
-```
-
-- 1.B Installation for robostack conda environment : 
-```bash
-    mamba install -c robostack ros-$ROS_DISTRO-gmapping ros-$ROS_DISTRO-map-server 
+    ros-$ROS_DISTRO-gmapping 
+    ros-$ROS_DISTRO-map-server 
+    ros-$ROS_DISTRO-navigation 
 ```
 
 ## Usage
-- 1. Build the map using gmapping :
-```bash
-    roslaunch asado_navigation gmapping.launch
-```
+- [localization.launch](./launch/localization.launch)
+    - Spawn the robot in gazebo and localize it with amcl.
+    ```bash
+        roslaunch asado_navigation localization.launch
+    ```
 
-- 2. Save the map :
-```bash
-    rosrun map_server map_saver -f ~/map
-```
+- [navigation.launch](./launch/navigation.launch)
+    - Spawn the robot in gazebo and launch the navigation stack.
+    ```bash
+        roslaunch asado_navigation navigation.launch
+    ```
 
-- 3. Localize the robot using amcl :
-```bash
-    roslaunch asado_navigation amcl.launch
-```
-
-- 4. Navigate the robot using rviz :
-```bash
-    roslaunch asado_navigation move_base.launch
-```
-
-## [Back](../README.md#setup-and-usage)
+## [Back](../README.md#usage)
