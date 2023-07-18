@@ -2,7 +2,7 @@ link:
   name: 'RF_wheel'
   msh: 'package://asado_description/meshes/RF_wheel.STL'
   color: 'orange'
-  mass: 0.8
+  mass: 0.3
   x: 0.032026 
   y: 6.9389E-17
   z: 0

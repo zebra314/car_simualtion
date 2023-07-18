@@ -17,10 +17,10 @@
 			<xacro:if value="${wheel_props['link']['color'] == 'green'}">
         <material>Gazebo/Green</material>
       </xacro:if>
-      <mu1 value="${wheel_props['link']['mu1']}" />
-      <mu2 value="${wheel_props['link']['mu2']}" />
-      <kp value="${wheel_props['link']['kp']}" />
-      <kd value="${wheel_props['link']['kd']}" />
+      <mu1 value="1" />
+      <mu2 value="1" />
+      <kp value="1e+13" />
+      <kd value="1" />
       <fdir1 value="0 0 0" />
     </gazebo>
     <link name="${wheel_props['link']['name']}">
@@ -51,8 +51,8 @@
       <parent link="chassis" />
       <child link="${wheel_props['joint']['child_link']}" />
       <axis xyz="${wheel_props['joint']['x_axs']} 0 0" />
-      <limit effort="${wheel_props['joint']['effort']}" velocity="${wheel_props['joint']['velocity']}" />
-      <dynamics damping="${wheel_props['joint']['damping']}" />
+      <limit effort="1000" velocity="1000000" />
+      <dynamics damping="0" />
     </joint>
 
     <!-- Macro for Wheel transmission -->

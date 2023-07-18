@@ -2,7 +2,7 @@ link:
   name: 'LF_wheel'
   msh: 'package://asado_description/meshes/LF_wheel.STL'
   color: 'orange'
-  mass: 0.8
+  mass: 0.3
   x: -0.032026
   y: -1.3878E-17
   z: -5.5511E-17
