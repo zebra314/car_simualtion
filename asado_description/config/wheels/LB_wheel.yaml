@@ -12,10 +12,6 @@ link:
   iyy: 0.00096656
   iyz: 9.7862E-20
   izz: 0.00096656
-  mu1: 1.5
-  mu2: 1.5
-  kp: 10000000.0
-  kd: 10000
 joint:
   name: 'LB_wheel_jnt'
   child_link: 'LB_wheel'
@@ -23,9 +19,6 @@ joint:
   y: -0.2695
   z: -0.1241
   x_axs: -1
-  effort: 5
-  velocity: 100000
-  damping: 0.8
 transmission:
   name: 'LB_wheel_trans'
   jnt: 'LB_wheel_jnt'
