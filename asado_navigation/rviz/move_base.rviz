@@ -245,7 +245,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.699999988079071
       Class: rviz/Map
-      Color Scheme: map
+      Color Scheme: costmap
       Draw Behind: false
       Enabled: true
       Name: local cost map
@@ -331,7 +331,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 5.768244743347168
+      Distance: 8.103968620300293
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -339,17 +339,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.344319224357605
-        Y: -0.2794787883758545
-        Z: 1.6189119378395844e-06
+        X: -1.8401918411254883
+        Y: -1.2634937763214111
+        Z: 3.0494234124489594e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5352030396461487
+      Pitch: 0.4902031421661377
       Target Frame: footprint
-      Yaw: 4.746762752532959
+      Yaw: 4.801767349243164
     Saved: ~
 Window Geometry:
   Displays:
@@ -367,5 +367,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 510
+  X: 512
   Y: 27
