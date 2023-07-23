@@ -6,7 +6,7 @@ subscribe_to_updates: true
 obstacle_layer:
     enabled: true
 
-    obstacle_range: 3 # 規劃時考慮幾公尺內的障礙物
+    obstacle_range: 3.0 # 規劃時考慮幾公尺內的障礙物
     raytrace_range: 6.5 # 清除幾公尺內的障礙物
 
     max_obstacle_height: 0.5 # 障礙物最大高度
@@ -25,7 +25,7 @@ obstacle_layer:
 inflation_layer:
     enabled: true
     cost_scaling_factor: 3.5
-    inflation_radius: 0.2
+    inflation_radius: 0.4
 
 static_layer:
     enabled: true
