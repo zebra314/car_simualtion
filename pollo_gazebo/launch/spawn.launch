@@ -1,0 +1,27 @@
+<launch>
+	<!-- Arguments -->
+	<arg name="x" default="0"/>
+	<arg name="y" default="0"/>
+	<arg name="z" default="0"/>
+	<arg name="yaw" default="0"/>
+
+	<arg name="rviz" default="false"/>
+
+	<!-- World -->
+	<include file="$(find pollo_gazebo)/launch/world.launch" />
+
+	<!-- Controller -->
+	<include file="$(find pollo_control)/launch/control.launch" />
+
+	<!-- Load the URDF into the ROS Parameter Server -->
+	<param name="robot_description" command="$(find xacro)/xacro 
+		'$(find pollo_description)/urdf/pollo.xacro'" />
+
+	<!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+	<node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+		args="-urdf -model pollo -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" />
+
+	<!-- Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_description)/rviz/pollo.rviz" 
+		if='$(arg rviz)'/>
+</launch>

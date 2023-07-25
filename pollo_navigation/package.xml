@@ -1,0 +1,31 @@
+<package format="2">
+  <name>pollo_navigation</name>
+  <version>1.0.0</version>
+  <description>
+    <p>pollo asado navigation</p>
+  </description>
+  <author>TODO</author>
+  <maintainer email="kidalfonso@email.com" />
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>dwa_local_planner</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  
+  <export>
+    <architecture_independent />
+  </export>
+</package>

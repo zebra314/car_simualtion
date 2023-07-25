@@ -3,11 +3,11 @@
 A ROS package for simulating a mobile robot with four wheels in Gazebo.
 
 ## Usage   
-- [asado_control](asado_control/README.md)      
-- [asado_description](asado_description/README.md)   
-- [asado_gazebo](asado_gazebo/README.md)      
-- [asado_navigation](asado_navigation/README.md)      
-- [asado_teleop](asado_teleop/README.md)     
+- [pollo_control](pollo_control/README.md)      
+- [pollo_description](pollo_description/README.md)   
+- [pollo_gazebo](pollo_gazebo/README.md)      
+- [pollo_navigation](pollo_navigation/README.md)      
+- [pollo_teleop](pollo_teleop/README.md)     
 
 ## Setup   
 - Installation for local ROS environment :  
@@ -54,15 +54,15 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 - 1. Spawn the model in Gazebo and control the robot using PS4 joystick:   
 ```bash    
     # bash-1
-    roslaunch asado_gazebo spawn.launch
+    roslaunch pollo_gazebo spawn.launch
 ```
 ```bash
     # bash-2
-    roslaunch asado_teleop teleop.launch
+    roslaunch pollo_teleop teleop.launch
 ```  
 
 - 2. Navigate the robot in Gazebo :   
 ```bash
     # Use 2D Nav Goal in Rviz to set the goal position
-    roslaunch asado_navigation navigation.launch
+    roslaunch pollo_navigation navigation.launch
 ```

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pollo">
+
+	<xacro:macro name="chassis" params="chassis_props">
+
+		<!-- Footprint -->
+		<link name="footprint"></link>
+		<joint name="footprint_jnt" type="fixed">
+			<parent link="footprint" />
+			<child link="chassis" />
+
+      <!-- Rotate 90 degrees along z-axis -->
+      <origin rpy="0 0 -1.5708" />
+		</joint>
+
+		<!-- Link -->
+    <gazebo reference="${chassis_props['link']['name']}">
+      <xacro:if value="${chassis_props['link']['color'] == 'white'}">
+        <material>Gazebo/White</material>
+      </xacro:if>
+      <xacro:if value="${chassis_props['link']['color'] == 'orange'}">
+        <material>Gazebo/Orange</material>
+      </xacro:if>
+			<xacro:if value="${chassis_props['link']['color'] == 'blue'}">
+        <material>Gazebo/Blue</material>
+      </xacro:if>
+			<xacro:if value="${chassis_props['link']['color'] == 'green'}">
+        <material>Gazebo/Green</material>
+      </xacro:if>
+      <mu1 value="${chassis_props['link']['mu1']}" />
+      <mu2 value="${chassis_props['link']['mu2']}" />
+      <kp value="${chassis_props['link']['kp']}" />
+      <kd value="${chassis_props['link']['kd']}" />
+      <fdir1 value="0 0 0" />
+    </gazebo>
+    <link name="${chassis_props['link']['name']}">
+      <inertial>
+        <origin xyz="${chassis_props['link']['x']} ${chassis_props['link']['y']} ${chassis_props['link']['z']}" rpy="0 0 0" />
+        <mass value="${chassis_props['link']['mass']}" />
+        <inertia ixx="${chassis_props['link']['ixx']}" ixy="${chassis_props['link']['ixy']}" ixz="${chassis_props['link']['ixz']}"
+          iyy="${chassis_props['link']['iyy']}" iyz="${chassis_props['link']['iyz']}" izz="${chassis_props['link']['izz']}" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${chassis_props['link']['msh']}" />
+        </geometry>
+        <material name="${chassis_props['link']['color']}" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${chassis_props['link']['msh']}" />
+        </geometry>
+      </collision>
+    </link>
+	</xacro:macro>
+
+</robot>
