@@ -6,7 +6,8 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 - [pollo_control](pollo_control/README.md)      
 - [pollo_description](pollo_description/README.md)   
 - [pollo_gazebo](pollo_gazebo/README.md)      
-- [pollo_navigation](pollo_navigation/README.md)      
+- [pollo_navigation](pollo_navigation/README.md) 
+- [pollo_sensors](pollo_sensors/README.md)     
 - [pollo_teleop](pollo_teleop/README.md)     
 
 ## Setup   

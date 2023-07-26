@@ -1,21 +1,33 @@
 <launch>
 
   <arg name="map_file" default="$(find pollo_navigation)/maps/27_TDK_map.yaml" />
-  <arg name="use_map_topic" default="true" />
-  <arg name="scan_topic" default="pollo/laser/scan" />
-  <arg name="initial_pose_x" default="0"/>
-  <arg name="initial_pose_y" default="0"/>
-  <arg name="initial_pose_a" default="0"/>
+
+  <arg name="use_map_topic"   default="true" />
+  <arg name="scan_topic"      default="pollo/laser/scan" />
+  <arg name="odom_frame_id"   default="/odom"/>
+  <arg name="base_frame_id"   default="/footprint"/>
+  <arg name="global_frame_id" default="/map"/>
+  
+  <arg name="initial_pose_x"  default="0"/>
+  <arg name="initial_pose_y"  default="0"/>
+  <arg name="initial_pose_a"  default="0"/>
   
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!-- Localize the robot using amcl -->
   <node pkg="amcl" type="amcl" name="amcl">
+
+    <remap from="scan" to="$(arg scan_topic)" />
+    <param name="use_map_topic" value="$(arg use_map_topic)" />
+    <param name="odom_frame_id" value="$(arg odom_frame_id)"/>
+    <param name="base_frame_id" value="$(arg base_frame_id)"/>
+    <param name="global_frame_id" value="$(arg global_frame_id)"/>
+
     <param name="initial_pose_x" value="$(arg initial_pose_x)"/>
     <param name="initial_pose_y" value="$(arg initial_pose_y)"/>
     <param name="initial_pose_a" value="$(arg initial_pose_a)"/>
-    <param name="use_map_topic" value="$(arg use_map_topic)" />
+    
     <param name="odom_model_type" value="diff-corrected" />
     <param name="odom_alpha5" value="0.1" />
     <param name="gui_publish_rate" value="10.0" /> 
@@ -42,16 +54,12 @@
     <param name="laser_likelihood_max_dist" value="2.0" />
     <param name="update_min_d" value="0.25" />
     <param name="update_min_a" value="0.2" />
-    <param name="odom_frame_id" value="/odom" />
-    <param name="base_frame_id" value="/footprint"/>
-    <param name="global_frame_id" value="/map" />
     <param name="resample_interval" value="1" />
     <param name="transform_tolerance" value="1.0" />
     <param name="recovery_alpha_slow" value="0.0" />
     <param name="recovery_alpha_fast" value="0.0" />
     <param name="tf_broadcast" value="true" />
-    <remap from="scan" to="$(arg scan_topic)" />
-    <remap from="/odom" to="/pollo/odom" />
+
   </node>
 
 </launch>

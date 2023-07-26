@@ -21,7 +21,7 @@
       <mu2 value="200" />
       <kp value="10000000.0" />
       <kd value="1.0" />
-      <fdir1 value="0 0 0" />
+      <minDepth>0.01</minDepth>
     </gazebo>
     <link name="${wheel_props['link']['name']}">
       <inertial>
@@ -51,8 +51,6 @@
       <parent link="chassis" />
       <child link="${wheel_props['joint']['child_link']}" />
       <axis xyz="${wheel_props['joint']['x_axs']} 0 0" />
-      <!-- <limit effort="1000" velocity="1000000" /> -->
-      <!-- <dynamics damping="0.01" fraction="0.0"/> -->
     </joint>
 
     <!-- Macro for Wheel transmission -->

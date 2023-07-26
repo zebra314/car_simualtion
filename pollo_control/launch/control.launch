@@ -18,4 +18,8 @@
         <remap from="/joint_states" to="/pollo/joint_states"/>
     </node>
 
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" >
+        <param name="default_topic" value="/pollo/cmd_vel"/>
+    </node>
+
 </launch>

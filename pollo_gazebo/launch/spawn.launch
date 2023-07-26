@@ -2,7 +2,7 @@
 	<!-- Arguments -->
 	<arg name="x" default="0"/>
 	<arg name="y" default="0"/>
-	<arg name="z" default="0"/>
+	<arg name="z" default="0.3"/>
 	<arg name="yaw" default="0"/>
 
 	<arg name="rviz" default="false"/>
