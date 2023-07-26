@@ -32,18 +32,17 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 
 - Installation for robostack conda environment :  
 ```bash
-    mamba install -c robostack 
-    ros-$ROS_DISTRO-joy 
-    ros-$ROS_DISTRO-teleop-twist-joy
-    ros-$ROS_DISTRO-gmapping 
-    ros-$ROS_DISTRO-map-server 
-    ros-$ROS_DISTRO-gazebo-ros-pkgs 
-    ros-$ROS_DISTRO-gazebo-ros 
-    ros-$ROS_DISTRO-gazebo-ros-control 
-    ros-$ROS_DISTRO-velocity-controllers 
-    ros-$ROS_DISTRO-joint-state-controller 
-    ros-$ROS_DISTRO-controller-manager 
-    ros-$ROS_DISTRO-laser-assembler  
+    mamba install -c robostack ros-$ROS_DISTRO-joy 
+    mamba install -c robostack ros-$ROS_DISTRO-teleop-twist-joy
+    mamba install -c robostack ros-$ROS_DISTRO-gmapping 
+    mamba install -c robostack ros-$ROS_DISTRO-map-server 
+    mamba install -c robostack ros-$ROS_DISTRO-gazebo-ros-pkgs 
+    mamba install -c robostack ros-$ROS_DISTRO-gazebo-ros 
+    mamba install -c robostack ros-$ROS_DISTRO-gazebo-ros-control 
+    mamba install -c robostack ros-$ROS_DISTRO-velocity-controllers 
+    mamba install -c robostack ros-$ROS_DISTRO-joint-state-controller 
+    mamba install -c robostack ros-$ROS_DISTRO-controller-manager 
+    mamba install -c robostack ros-$ROS_DISTRO-laser-assembler  
     
     # Do not install ros-noetic-pcl-ros, it will change the version of some pkgs,     
     # and cause gazebo to crash.    
