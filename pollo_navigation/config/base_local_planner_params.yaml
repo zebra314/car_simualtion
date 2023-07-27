@@ -2,13 +2,13 @@ base_local_planner: base_local_planner/TrajectoryPlannerROS # 本地規劃器
 base_global_planner: navfn/NavfnROS # 全局規劃器
 TrajectoryPlannerROS:
 
-  max_vel_x: 1.0
+  max_vel_x: 5.0
   min_vel_x: -1.0
   max_vel_theta: 1.0
   min_vel_theta: -1.0
   min_in_place_vel_theta: 1.0 # 旋轉時的最小速度
 
-  max_vel_trans:  3
+  max_vel_trans:  5
   min_vel_trans:  1
 
   # tolerance
@@ -16,16 +16,16 @@ TrajectoryPlannerROS:
   xy_goal_tolerance: 0.05
   # latch_xy_goal_tolerance: true # 是否在到達目標後停止規劃
 
-  acc_lim_theta: 0.6
-  acc_lim_x: 1
-  acc_lim_y: 1
+  acc_lim_theta: 1.2
+  acc_lim_x: 2
+  acc_lim_y: 2
 
   holonomic_robot: false
 
-  sim_time: 5 # 模擬時間的限制 （找出一次最佳路徑）
-  sim_granularity: 0.05 # 模擬的時間間隔
-  vx_samples: 20 # 線性速度的樣本數量
-  vtheta_samples: 20 # 角速度的樣本數量
+  sim_time: 1 # 模擬時間的限制 （找出一次最佳路徑）
+  sim_granularity: 0.1 # 模擬的時間間隔
+  vx_samples: 200 # 線性速度的樣本數量
+  vtheta_samples: 200 # 角速度的樣本數量
 
   scaling_speed: 3
   max_scaling_factor: 3
