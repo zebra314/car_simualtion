@@ -19,10 +19,6 @@
 			<arg name="yaw" value="$(arg yaw)" />
     </include>
 
-    <!-- Spawn the obstacles -->
-    <node pkg="pollo_gazebo" name="obstacle_spawner" type="obstacle_spawner.py" output="screen">
-    </node>
-
     <!---Run AMCL -->
     <include file="$(find pollo_navigation)/launch/include/amcl.launch" >
 			<arg name="initial_pose_x" value="$(arg x)" />
@@ -32,5 +28,8 @@
 
     <!-- Run Move Base -->
     <include file="$(find pollo_navigation)/launch/include/move_base.launch" />
+
+    <!-- Spawn the obstacles -->
+    <include file="$(find pollo_gazebo)/launch/obstacle.launch" />
 
 </launch> 
