@@ -2,7 +2,7 @@
 
 		<!-- Init pose -->
 		<arg name="x" default="0"/>
-		<arg name="y" default="2.7"/>
+		<arg name="y" default="0"/>
 		<arg name="z" default="0.3"/>
 		<arg name="yaw" default="1.5708"/>
     
@@ -18,6 +18,10 @@
 			<arg name="z" value="$(arg z)" />
 			<arg name="yaw" value="$(arg yaw)" />
     </include>
+
+    <!-- Spawn the obstacles -->
+    <node pkg="pollo_gazebo" name="obstacle_spawner" type="obstacle_spawner.py" output="screen">
+    </node>
 
     <!---Run AMCL -->
     <include file="$(find pollo_navigation)/launch/include/amcl.launch" >

@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(pollo_gazebo)
-
-# add_compile_options(-std=c++11)
 
 find_package(catkin REQUIRED
   rospy
@@ -13,4 +11,9 @@ catkin_package(
 )
 
 include_directories(
+)
+
+install(PROGRAMS
+  src/obstacle_spawner.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
