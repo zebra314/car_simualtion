@@ -1,0 +1,7 @@
+<launch>
+
+  <!-- Spawn the obstacles -->
+  <node pkg="pollo_gazebo" name="obstacle_spawner" type="obstacle_spawner.py" output="screen">
+  </node>
+  
+</launch>
