@@ -1,17 +1,14 @@
 <launch>
 
-		<!-- Init pose -->
+		<!-- Params -->
 		<arg name="x" default="0"/>
 		<arg name="y" default="0"/>
 		<arg name="z" default="0.3"/>
 		<arg name="yaw" default="1.5708"/>
-    
-    <!-- Rviz -->
     <arg name="rviz" default="true"/>
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_navigation)/rviz/move_base.rviz" 
-			if="$(arg rviz)"/>
+    <arg name="obstacle" default="true"/>
 
-    <!-- Spawn the robot -->
+    <!-- Robot -->
     <include file="$(find pollo_gazebo)/launch/spawn.launch" >
 			<arg name="x" value="$(arg x)" />
 			<arg name="y" value="$(arg y)" />
@@ -19,17 +16,22 @@
 			<arg name="yaw" value="$(arg yaw)" />
     </include>
 
-    <!---Run AMCL -->
+    <!-- Obstacles -->
+    <include file="$(find pollo_gazebo)/launch/obstacle.launch" 
+      if="$(arg obstacle)"/>
+
+    <!--- AMCL -->
     <include file="$(find pollo_navigation)/launch/include/amcl.launch" >
 			<arg name="initial_pose_x" value="$(arg x)" />
       <arg name="initial_pose_y" value="$(arg y)" />
       <arg name="initial_pose_a" value="$(arg yaw)" />
 		</include>
 
-    <!-- Run Move Base -->
+    <!-- Move Base -->
     <include file="$(find pollo_navigation)/launch/include/move_base.launch" />
 
-    <!-- Spawn the obstacles -->
-    <include file="$(find pollo_gazebo)/launch/obstacle.launch" />
+    <!-- Rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_navigation)/rviz/move_base.rviz" 
+      if="$(arg rviz)"/>
 
 </launch> 
