@@ -5,6 +5,7 @@ from gazebo_msgs.srv import SpawnModel
 from geometry_msgs.msg import Pose
 
 rospy.init_node('obstacle_spawner',log_level=rospy.INFO)
+rospy.wait_for_service('/gazebo/spawn_sdf_model')
 spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
 
 obstacle_xml = \
