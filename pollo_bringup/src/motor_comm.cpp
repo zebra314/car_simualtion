@@ -7,7 +7,6 @@ extern "C"{
 #include <pollo_bringup/motor_function.h>
 }
 
-void writeRegister();
 void initMsg();
 void clearMsg(serialData *targetMsg);
 void processMsg(carInfo *car_info);
@@ -22,16 +21,8 @@ int main(int argc, char **argv){
     serialInit();
     initMsg();
     ros::NodeHandle rosNh;
-    std::cout<<"motor_comm node is running..."<<std::endl;
     ros::Subscriber velCmdSub = rosNh.subscribe("/pollo/cmd_vel", 1, velCmdCallback);
     ros::spin();
-    // while(ros::ok()){
-    //   writeRegister();
-    //   CRC16Generate(&msg);
-    //   transmitData(&msg);
-    //   receiveData(&msg);
-    // }
-
     return 0;
 }
 
@@ -72,36 +63,6 @@ void sendMsg(carInfo *car_info){
   transmitData(&car_info->lb_wheel);
   transmitData(&car_info->rb_wheel);
   return;
-}
-
-void writeRegister(){
-    int input;
-
-    clearMsg(&msg);
-    msg.length = 8;
-    std::cout << "enter target address: (dec)" << std::endl;
-    std::cin >> std::dec >> input;
-    std::cin.get();
-    msg.data[0] = (uint8_t)input;
-    std::cout << std::endl;
-
-    msg.data[1] = 0x06;
-
-    std::cout << "enter register address: (hex)" << std::endl;
-    std::cin >> std::hex >> input;
-    std::cin.get();
-    msg.data[3] = (0xff & input);
-    msg.data[2] = (0xff & (input >> 8));
-    std::cout << std::endl;
-
-    std::cout << "enter data: (dec)" << std::endl;
-    std::cin >> std::dec >> input;
-    std::cin.get();
-    msg.data[5] = (0xff & input);
-    msg.data[4] = (0xff & (input >> 8));
-    std::cout << std::endl;
-
-    return ;
 }
 
 void clearMsg(serialData *targetMsg){
