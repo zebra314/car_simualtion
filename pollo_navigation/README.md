@@ -18,4 +18,9 @@
         roslaunch pollo_navigation navigation.launch
     ```
 
+- Clear costmaps
+    ```bash
+        rosservice call /move_base/clear_costmaps "{}"
+    ```
+
 ## [Back](../README.md#usage)
