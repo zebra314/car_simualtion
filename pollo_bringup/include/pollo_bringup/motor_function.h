@@ -20,6 +20,15 @@ typedef struct {
     int length;
 }serialData;
 
+typedef struct {
+    serialData lf_wheel;
+    serialData rf_wheel;
+    serialData lb_wheel;
+    serialData rb_wheel;
+    double linear_x;
+    double angular_z;
+}carInfo;
+
 void serialInit();
 void transmitData(serialData *transmitMsg);
 void receiveData(serialData *receiveMsg);
