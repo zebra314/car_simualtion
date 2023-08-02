@@ -3,7 +3,7 @@
   <name>pollo_gazebo</name>
   <version>1.0.0</version>
   <description>Spawn robot in gazebo</description>
-  <maintainer email="kidalfonso@email.com" />
+  <maintainer email="kidalfonso@gmail.com">kidalfonso</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>

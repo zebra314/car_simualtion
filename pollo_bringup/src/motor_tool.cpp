@@ -3,7 +3,7 @@
 #include <cstdint>
 
 extern "C"{
-#include <pollo_bringup/motor_function.h>
+#include <motor_function.h>
 }
 
 void readRegister();
