@@ -20,12 +20,12 @@ carInfo car_info_;
 
 int main(int argc, char **argv)
 {
+  // ros::Rate r(20);
   ros::init(argc, argv, "motor_comm");
   ros::NodeHandle rosNh;
   ros::Subscriber velCmdSub = rosNh.subscribe("/pollo/cmd_vel", 1, velCmdCallback);
   serialInit();
   initMsg(&car_info_);
-
   ros::spin();
   return 0;
 }
@@ -44,48 +44,51 @@ void processMsg(carInfo *car_info)
   double linear_x = car_info->linear_x;
   double angular_z = car_info->angular_z;
 
-  double wheel_radius = 0.08;
-  double lf_wheel_vel = 20 * (linear_x - angular_z * 0.5) / wheel_radius;
-  double rf_wheel_vel = 20 * (linear_x + angular_z * 0.5) / wheel_radius;
-  double lb_wheel_vel = 20 * (linear_x - angular_z * 0.5) / wheel_radius;
-  double rb_wheel_vel = 20 * (linear_x + angular_z * 0.5) / wheel_radius;
+  double wheel_radius = 0.15;
+  double axis_length = 0.61;
+  double lf_wheel_vel = 120 * (linear_x - angular_z * axis_length * 0.5) / wheel_radius;
+  double lb_wheel_vel = 120 * (linear_x - angular_z * axis_length * 0.5) / wheel_radius;
+  double rf_wheel_vel = 120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
+  double rb_wheel_vel = 120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
 
-  std::cout<<"---------------------"<<std::endl;
-  std::cout<<"lf_wheel_vel: "<<lf_wheel_vel<<std::endl;
-  std::cout<<"rf_wheel_vel: "<<rf_wheel_vel<<std::endl;
-  std::cout<<"lb_wheel_vel: "<<lb_wheel_vel<<std::endl;
-  std::cout<<"rb_wheel_vel: "<<rb_wheel_vel<<std::endl;
-  std::cout<<"---------------------"<<std::endl;
+  std::cout<<"---------------------"<<'\n';
+  std::cout<<"lf_wheel_vel: "<<lf_wheel_vel<<'\n';
+  std::cout<<"rf_wheel_vel: "<<rf_wheel_vel<<'\n';
+  std::cout<<"lb_wheel_vel: "<<lb_wheel_vel<<'\n';
+  std::cout<<"rb_wheel_vel: "<<rb_wheel_vel<<'\n';
+  std::cout<<"---------------------"<<'\n';
 
-  // car_info->lf_wheel.data[4] = (0xff & (int(lf_wheel_vel) >> 8));
-  // car_info->rf_wheel.data[4] = (0xff & (int(rf_wheel_vel) >> 8));
-  // car_info->lb_wheel.data[4] = (0xff & (int(lb_wheel_vel) >> 8));
-  // car_info->rb_wheel.data[4] = (0xff & (int(rb_wheel_vel) >> 8));
+  car_info->lf_wheel.data[4] = (0xff & (int(lf_wheel_vel) >> 8));
+  car_info->rf_wheel.data[4] = (0xff & (int(rf_wheel_vel) >> 8));
+  car_info->lb_wheel.data[4] = (0xff & (int(lb_wheel_vel) >> 8));
+  car_info->rb_wheel.data[4] = (0xff & (int(rb_wheel_vel) >> 8));
 
-  // car_info->lf_wheel.data[5] = (0xff & int(lf_wheel_vel));
-  // car_info->rf_wheel.data[5] = (0xff & int(rf_wheel_vel));
-  // car_info->lb_wheel.data[5] = (0xff & int(lb_wheel_vel));
-  // car_info->rb_wheel.data[5] = (0xff & int(rb_wheel_vel));
+  car_info->lf_wheel.data[5] = (0xff & int(lf_wheel_vel));
+  car_info->rf_wheel.data[5] = (0xff & int(rf_wheel_vel));
+  car_info->lb_wheel.data[5] = (0xff & int(lb_wheel_vel));
+  car_info->rb_wheel.data[5] = (0xff & int(rb_wheel_vel));
 
-  car_info->lf_wheel.data[4] = 27;
-  car_info->rf_wheel.data[4] = 27;
-  car_info->lb_wheel.data[4] = 27;
-  car_info->rb_wheel.data[4] = 27;
-
-  car_info->lf_wheel.data[5] = 10;
-  car_info->rf_wheel.data[5] = 10;
-  car_info->lb_wheel.data[5] = 10;
-  car_info->rb_wheel.data[5] = 10;
-
+  CRC16Generate(&car_info->lf_wheel);
+  CRC16Generate(&car_info->rf_wheel);
+  CRC16Generate(&car_info->lb_wheel);
+  CRC16Generate(&car_info->rb_wheel);
   return;
 }
 
 void sendMsg(carInfo *car_info)
 {
   transmitData(&car_info->lf_wheel);
-  transmitData(&car_info->rf_wheel);
+  receiveData(&car_info->lf_wheel);
+
+  // transmitData(&car_info->rf_wheel);
+  // receiveData(&car_info->rf_wheel);
+
   transmitData(&car_info->lb_wheel);
-  transmitData(&car_info->rb_wheel);
+  receiveData(&car_info->lb_wheel);
+
+  // transmitData(&car_info->rb_wheel);
+  // receiveData(&car_info->rb_wheel);
+
   return;
 }
 
@@ -116,10 +119,10 @@ void initMsg(carInfo *car_info)
   car_info->rb_wheel.data[2] = 0;
   car_info->rf_wheel.data[2] = 0;
 
-  car_info->lf_wheel.data[3] = 43;
-  car_info->lb_wheel.data[3] = 43;
-  car_info->rb_wheel.data[3] = 43;
-  car_info->rf_wheel.data[3] = 43;
+  car_info->lf_wheel.data[3] = 67;
+  car_info->lb_wheel.data[3] = 67;
+  car_info->rb_wheel.data[3] = 67;
+  car_info->rf_wheel.data[3] = 67;
 
   // 初始速度 0
   car_info->lf_wheel.data[4] = 0;
@@ -141,7 +144,6 @@ void clearMsg(carInfo *car_info)
   clearData(&car_info->rf_wheel);
   return;
 }
-
 
 void clearData(serialData *targetMsg)
 {
