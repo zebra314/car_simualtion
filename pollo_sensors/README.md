@@ -18,6 +18,7 @@ rplidar Tutorial: <https://github.com/robopeak/rplidar_ros/wiki>
    ```bash
    roslaunch pollo_sensors rplidar_s2.launch
    ```
+   
 - [view_rplidar_s2.launch](./launch/view_rplidar_s2.launch)
    - Launch the rplidar node and view the scan result in rviz.
    ```bash
