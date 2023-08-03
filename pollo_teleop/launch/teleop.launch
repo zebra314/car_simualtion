@@ -1,5 +1,12 @@
 <launch>
-  <arg name="method" default="joystick" />
+  <arg name="method" default="gui" />
+
+  <!-- GUI sliders -->
+  <group ns="gui_teleop" if="$(eval method=='gui')">
+    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" >
+      <param name="default_topic" value="/pollo/cmd_vel"/>
+    </node>
+  </group>
 
   <!-- ps4 joystick -->
   <group ns="joy_teleop" if="$(eval method=='joystick')">

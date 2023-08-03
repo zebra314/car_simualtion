@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>pollo_bringup</name>
+  <version>0.0.0</version>
+  <description>The pollo_bringup package</description>
+  <maintainer email="kidalfonso@gmail.com">kidalfonso</maintainer>
+  <license>TODO</license>
+
+  <exec_depend>message_runtime</exec_depend>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_srvs</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_srvs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+</package>

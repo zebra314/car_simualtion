@@ -1,0 +1,45 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="teleop" default="false" />
+  <arg name="method" default="gui" /> <!-- method = gui, joystick, keyboard -->
+  <arg name="sensor" default="false" />
+  <arg name="sim" default="false" />
+
+  <!-- Arguments for simulation -->
+  <arg name="x" default="0"/>
+	<arg name="y" default="0"/>
+	<arg name="z" default="0.3"/>
+	<arg name="yaw" default="1.5708"/>
+  <arg name="obstacle" default="true" />
+
+	<!-- Load controllers -->
+	<include file="$(find pollo_control)/launch/control.launch" unless="$(arg sim)"/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+	<param name="robot_description" command="$(find xacro)/xacro 
+	'$(find pollo_description)/urdf/pollo.xacro'" unless="$(arg sim)"/>
+
+  <!-- Load the robot to gazebo -->
+  <include file="$(find pollo_gazebo)/launch/spawn.launch" 
+    if="$(arg sim)">
+    <arg name="x" value="$(arg x)" />
+    <arg name="y" value="$(arg y)" />
+    <arg name="z" value="$(arg z)" />
+    <arg name="yaw" value="$(arg yaw)" />
+    <arg name="obstacle" value="$(arg obstacle)" />
+  </include>
+
+  <!-- Connect to the wheels -->
+  <include file="$(find pollo_plate_control)/launch/bringup.launch" />
+
+  <!-- Connect to the sensors -->
+  <include file="$(find pollo_sensor)/launch/rplidar_s2.launch" 
+  if="$(arg sensor)"/>
+
+  <!-- Teleop -->
+  <include file="$(find pollo_teleop)/launch/teleop.launch" 
+  if="$(arg teleop)">
+    <arg name="method" value="$(arg method)" />
+  </include>
+  
+</launch>

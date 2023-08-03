@@ -18,9 +18,4 @@
         <remap from="/joint_states" to="/pollo/joint_states"/>
     </node>
 
-    <!-- Control the joints using GUI sliders -->
-    <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" >
-        <param name="default_topic" value="/pollo/cmd_vel"/>
-    </node>
-
 </launch>
