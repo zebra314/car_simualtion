@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pollo_sensors)
+project(rplidar_ros)
 
 set(RPLIDAR_SDK_PATH "./sdk/")
 set(CMAKE_BUILD_TYPE "Release")

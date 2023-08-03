@@ -6,17 +6,13 @@
 ```  
 
 ## Usage
-- [base.launch](./launch/base.launch)
-    - Run the simulation and the real robot simultaneously.
-
 - [obstacle.launch](./launch/obstacle.launch)
     - Spawn random obstacles at particular positions.
 
 - [spawn.launch](./launch/spawn.launch)
-    - Spawn the robot in the simulation.
+    - Spawn the robot in gazebo world.
     
 - [world.launch](./launch/world.launch)
-    - Spawn the world in the simulation.
-    - This file is called by other launch files, no need to run it manually.
+    - Spawn the world.
 
 ## [Back](../README.md#usage)

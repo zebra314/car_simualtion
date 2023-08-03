@@ -3,13 +3,18 @@
 A ROS package for simulating a mobile robot with four wheels in Gazebo.
 
 ## Usage
+- features
+    - [pollo_main_control](./features/pollo_main_control/README.md)
+    - [pollo_plate_control](./features/pollo_plate_control/README.md)
+    - [pollo_upper_control](./features/pollo_upper_control/README.md)
 - [pollo_bringup](pollo_bringup/README.md)
-- [pollo_control](pollo_control/README.md)      
-- [pollo_description](pollo_description/README.md)   
-- [pollo_gazebo](pollo_gazebo/README.md)      
-- [pollo_mln](pollo_mln/README.md) 
-- [pollo_sensors](pollo_sensors/README.md)     
-- [pollo_teleop](pollo_teleop/README.md)     
+- [pollo_control](pollo_control/README.md)
+- [pollo_description](pollo_description/README.md)
+- [pollo_gazebo](pollo_gazebo/README.md)
+- [pollo_mln](pollo_mln/README.md)
+- [pollo_teleop](pollo_teleop/README.md)
+- sensors
+    - [rplidar_ros](./sensors/rplidar_ros/README.md) 
 
 ## Setup   
 - Installation for local ROS environment :  
@@ -51,14 +56,19 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
 ```   
 
 ## Quick Start
-- 1. Navigate the robot in Gazebo :   
-```bash
+- 1. Control the real time robot with gui
+    ```bash
     # bash-1
-    # Use 2D Nav Goal in Rviz to set the goal position
-    roslaunch pollo_mln navigation.launch
-```
-- 2. Control the robot using PS4 joystick
-```bash
+    roslaunch pollo_bringup bringup.launch
+
     # bash-2
     roslaunch pollo_teleop teleop.launch
-```  
+    ```
+- 2. Control the robot in simulation with joystick
+    ```bash
+    # bash-1
+    roslaunch pollo_gazebo bringup.launch sim:=true
+
+    # bash-2
+    roslaunch pollo_teleop teleop.launch method:=joystick
+    ```

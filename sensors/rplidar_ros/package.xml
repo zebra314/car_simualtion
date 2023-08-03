@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>pollo_sensors</name>
+  <name>rplidar_ros</name>
   <version>1.10.0</version>
   <description>The rplidar ros package, support rplidar A1/A2/A3/S1/S2/S3</description>
 

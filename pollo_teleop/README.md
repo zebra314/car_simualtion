@@ -6,18 +6,23 @@
 ```
 
 ## Usage
-- [teleop.launch](./launch/teleop.launch)
-    - The robot needs to be set up first, either [in gazebo](../pollo_gazebo/README.md) or [in real life](../pollo_bringup/README.md), then launch this node to control the robot.  
-
-    - Control the robot with joystick (default) :
+- The robot needs to be set up first, either in gazebo or in real life.
     ```bash
-        roslaunch pollo_teleop teleop.launch 
+    roslaunch pollo_bringup bringup.launch # for real robot
+    # or 
+    roslaunch pollo_gazebo spawn.launch # for simulation only
+    # or
+    roslaunch pollo_bringup bringup.launch sim:=true # for both real and simulation
     ```
     
-    - Control the robot with keyboard :
+- [teleop.launch](./launch/teleop.launch)
+    - Control the robot :
     ```bash
-        roslaunch pollo_teleop teleop.launch method:=keyboard
+    roslaunch pollo_teleop teleop.launch # with gui (default)
+    # or
+    roslaunch pollo_teleop teleop.launch method:=joystick # with joystick
+    # or
+    roslaunch pollo_teleop teleop.launch method:=keyboard # with keyboard
     ```
-
 
 ## [Back](../README.md#usage)

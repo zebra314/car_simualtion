@@ -6,21 +6,23 @@
 ```
 
 ## Usage
-- [localization.launch](./launch/localization.launch)
-    - Spawn the robot in gazebo and localize it with amcl.
+- The robot needs to be set up first, either in gazebo or in real life.
     ```bash
-        roslaunch pollo_mln localization.launch
+    roslaunch pollo_bringup bringup.launch # for real robot
+    # or 
+    roslaunch pollo_gazebo spawn.launch # for simulation only
+    # or
+    roslaunch pollo_bringup bringup.launch sim:=true # for both real and simulation
     ```
+
+- [localization.launch](./launch/localization.launch)
+    - Localize the robot with amcl.
 
 - [navigation.launch](./launch/navigation.launch)
-    - Spawn the robot in gazebo and launch the navigation stack.
+    - Launch the navigation stack.
+    - Clear costmaps
     ```bash
-        roslaunch pollo_mln navigation.launch
-    ```
-
-- Clear costmaps
-    ```bash
-        rosservice call /move_base/clear_costmaps "{}"
+    rosservice call /move_base/clear_costmaps "{}"
     ```
 
 ## [Back](../README.md#usage)
