@@ -1,0 +1,7 @@
+image: 27_TDK_map_edit.pgm
+resolution: 0.050000
+origin: [-5.945, -0.55, 0.0] # 地圖的原點
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

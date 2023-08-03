@@ -1,0 +1,7 @@
+shutdown_costmaps: false # 在不活動狀態時是否關閉costmap
+controller_frequency: 2 # 發布速度指令的頻率
+controller_patience: 2.0 # 在停止之前允許的最大時間
+planner_frequency: 2.0
+planner_patience: 5.0
+oscillation_timeout: 10 # 在執行recovery前允許的最大振動時長
+oscillation_distance: 0.2 # 允許來回振動的最小距離

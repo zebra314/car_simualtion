@@ -1,0 +1,38 @@
+base_local_planner: base_local_planner/TrajectoryPlannerROS # 本地規劃器
+base_global_planner: navfn/NavfnROS # 全局規劃器
+TrajectoryPlannerROS:
+
+  max_vel_x: 5.0
+  min_vel_x: -5.0
+  max_vel_theta: 2.0
+  min_vel_theta: -2.0
+  min_in_place_vel_theta: 1.0 # 旋轉時的最小速度
+
+  max_vel_trans:  5
+  min_vel_trans:  -5
+
+  # tolerance
+  yaw_goal_tolerance: 0.10
+  xy_goal_tolerance: 0.05
+  # latch_xy_goal_tolerance: true # 是否在到達目標後停止規劃
+
+  acc_lim_theta: 1.2
+  acc_lim_x: 2
+  acc_lim_y: 2
+
+  holonomic_robot: false
+
+  sim_time: 1 # 模擬時間的限制 （找出一次最佳路徑）
+  sim_granularity: 0.1 # 模擬的時間間隔
+  vx_samples: 300 # 線性速度的樣本數量
+  vtheta_samples: 300 # 角速度的樣本數量
+
+  scaling_speed: 3
+  max_scaling_factor: 3
+
+  # Trajectory Scoring Parameters
+  meter_scoring: true # 是否考慮移動距離 否則指根據代價進行規劃
+  path_distance_bias: 30 # 前瞻距離, 機器人在做出決策時所考慮的未來路徑段的距離
+  goal_distance_bias: 20 # 目標距離, 機器人在做出決策時所考慮的目標的距離
+  # occdist_scale: 0.9 # 障礙物的代價
+  # heading_lookahead: 0.6 # 頭部 前瞻的距離
