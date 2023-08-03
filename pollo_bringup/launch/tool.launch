@@ -1,6 +1,0 @@
-<launch>
-  
-  <node pkg="pollo_bringup" name="motor_tool" type="motor_tool" output="screen">
-  </node>
-
-</launch>
