@@ -1,8 +1,8 @@
 <launch>
 
 		<!-- Params -->
-		<arg name="x" default="0"/>
-		<arg name="y" default="0"/>
+		<arg name="x" default="0.3"/>
+		<arg name="y" default="2.4"/>
 		<arg name="yaw" default="1.5708"/>
     <arg name="rviz" default="true"/>
 

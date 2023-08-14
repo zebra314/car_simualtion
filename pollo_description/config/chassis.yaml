@@ -2,7 +2,7 @@ link:
   name: 'chassis'
   msh: 'package://pollo_description/meshes/chassis.STL'
   color: 'white'
-  mass: 8
+  mass: 15
   x: -0.00074513
   y: -0.11739
   z: -1.5708
