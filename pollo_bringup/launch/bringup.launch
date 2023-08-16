@@ -1,7 +1,7 @@
 <launch>
   <!-- Arguments -->
   <arg name="teleop" default="true" />
-  <arg name="method" default="gui" /> <!-- method = gui, joystick, keyboard -->
+  <arg name="method" default="joystick" /> <!-- method = gui, joystick, keyboard -->
   <arg name="sensor" default="false" />
   <arg name="sim" default="false" />
 

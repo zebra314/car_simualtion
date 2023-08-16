@@ -48,8 +48,8 @@ void processMsg(carInfo *car_info)
   double axis_length = 0.61;
   double lf_wheel_vel = 120 * (linear_x - angular_z * axis_length * 0.5) / wheel_radius;
   double lb_wheel_vel = 120 * (linear_x - angular_z * axis_length * 0.5) / wheel_radius;
-  double rf_wheel_vel = -120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
-  double rb_wheel_vel = 120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
+  double rf_wheel_vel = 120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
+  double rb_wheel_vel = -120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
 
   std::cout<<"---------------------"<<'\n';
   std::cout<<"lf_wheel_vel: "<<lf_wheel_vel<<'\n';
