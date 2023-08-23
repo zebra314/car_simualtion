@@ -33,7 +33,11 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     sudo apt-get install ros-$ROS_DISTRO-navigation 
     sudo apt-get install ros-$ROS_DISTRO-joy 
     sudo apt-get install ros-$ROS_DISTRO-teleop-twist-joy 
-    sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard 
+    sudo apt-get install ros-$ROS_DISTRO-teleop-twist-keyboard  
+    sudo apt-get install ros-$ROS_DISTRO-amcl    
+    sudo apt-get install ros-$ROS_DISTRO-move-base 
+    sudo apt-get install ros-$ROS_DISTRO-map-server   
+    pip install qrcode_terminal
 ```   
 
 - Installation for robostack conda environment :  
@@ -48,7 +52,11 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     mamba install -c robostack ros-$ROS_DISTRO-velocity-controllers 
     mamba install -c robostack ros-$ROS_DISTRO-joint-state-controller 
     mamba install -c robostack ros-$ROS_DISTRO-controller-manager 
-    mamba install -c robostack ros-$ROS_DISTRO-laser-assembler  
+    mamba install -c robostack ros-$ROS_DISTRO-laser-assembler   
+    mamba install -c robostack ros-$ROS_DISTRO-amcl    
+    mamba install -c robostack ros-$ROS_DISTRO-move-base    
+    mamba install -c robostack ros-$ROS_DISTRO-map-server    
+    pip install qrcode_terminal    
     
     # Do not install ros-noetic-pcl-ros, it will change the version of some pkgs,     
     # and cause gazebo to crash.    
@@ -62,7 +70,7 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     roslaunch pollo_bringup bringup.launch
 
     # bash-2
-    roslaunch pollo_teleop teleop.launch
+    roslaunch pollo_teleop teleop.launch method:=gui
     ```
 - 2. Control the robot in simulation with joystick
     ```bash
