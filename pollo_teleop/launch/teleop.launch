@@ -1,6 +1,15 @@
 <launch>
   <arg name="method" default="gui" />
 
+  <!-- Web server -->
+  <group ns="web_teleop" if="$(eval method=='web')">
+    <node pkg="pollo_teleop" type="run" name="run"/>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" >
+      <arg name="port" value="9090" />
+    </include>
+    <node pkg="pollo_teleop" name="generate_qrcode" type="generate_qrcode.py"  output="screen" />
+  </group>
+
   <!-- GUI sliders -->
   <group ns="gui_teleop" if="$(eval method=='gui')">
     <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" >
