@@ -20,5 +20,5 @@ with open (file_path, "w") as f:
 
 # Generate QR code in terminal
 url = "http://" + ip + ":8888"
-time.sleep(1)
+time.sleep(2.5)
 qrcode_terminal.draw(url)
