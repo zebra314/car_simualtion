@@ -1,5 +1,5 @@
 <launch>
-  <arg name="method" default="gui" />
+  <arg name="method" default="web" />
 
   <!-- Web server -->
   <group ns="web_teleop" if="$(eval method=='web')">
