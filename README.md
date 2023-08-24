@@ -38,6 +38,7 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     sudo apt-get install ros-$ROS_DISTRO-move-base 
     sudo apt-get install ros-$ROS_DISTRO-map-server   
     pip install qrcode_terminal
+    pip install tornado
 ```   
 
 - Installation for robostack conda environment :  
@@ -56,7 +57,8 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     mamba install -c robostack ros-$ROS_DISTRO-amcl    
     mamba install -c robostack ros-$ROS_DISTRO-move-base    
     mamba install -c robostack ros-$ROS_DISTRO-map-server    
-    pip install qrcode_terminal    
+    pip install qrcode_terminal  
+    pip3 install tornado      
     
     # Do not install ros-noetic-pcl-ros, it will change the version of some pkgs,     
     # and cause gazebo to crash.    

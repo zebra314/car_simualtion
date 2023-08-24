@@ -1,8 +1,9 @@
 ## Dependencies
 ```bash
-    ros-$ROS_DISTRO-joy
-    ros-$ROS_DISTRO-teleop-twist-joy       
-    ros-$ROS_DISTRO-teleop-twist-keyboard   
+    pip install qrcode_terminal   
+    ros-$ROS_DISTRO-joy     
+    ros-$ROS_DISTRO-teleop-twist-joy         
+    ros-$ROS_DISTRO-teleop-twist-keyboard    
 ```
 
 ## Usage
@@ -18,11 +19,15 @@
 - [teleop.launch](./launch/teleop.launch)
     - Control the robot :
     ```bash
-    roslaunch pollo_teleop teleop.launch # with gui (default)
+    roslaunch pollo_teleop teleop.launch # with web page (default)
+    # or
+    roslaunch pollo_teleop teleop.launch method:=gui # with gui 
     # or
     roslaunch pollo_teleop teleop.launch method:=joystick # with joystick
     # or
     roslaunch pollo_teleop teleop.launch method:=keyboard # with keyboard
     ```
+- If using the web page, make sure to connect to the same network as the robot.
 
+- The web page is built using [ROSboard](./rosboard.md)
 ## [Back](../README.md#usage)
