@@ -8,6 +8,8 @@ extern "C"
   #include <motor_function.h>
 }
 
+// #define DEBUG
+
 // Msg {Data, Length, Status}
 void initMsg(carInfo *car_info);
 void clearMsg(carInfo *car_info);
@@ -51,12 +53,14 @@ void processMsg(carInfo *car_info)
   double rf_wheel_vel = 120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
   double rb_wheel_vel = -120 * (linear_x + angular_z * axis_length * 0.5) / wheel_radius;
 
+  #ifdef DEBUG
   std::cout<<"---------------------"<<'\n';
   std::cout<<"lf_wheel_vel: "<<lf_wheel_vel<<'\n';
   std::cout<<"rf_wheel_vel: "<<rf_wheel_vel<<'\n';
   std::cout<<"lb_wheel_vel: "<<lb_wheel_vel<<'\n';
   std::cout<<"rb_wheel_vel: "<<rb_wheel_vel<<'\n';
   std::cout<<"---------------------"<<'\n';
+  #endif
 
   car_info->lf_wheel.data[4] = (0xff & (int(lf_wheel_vel) >> 8));
   car_info->rf_wheel.data[4] = (0xff & (int(rf_wheel_vel) >> 8));
