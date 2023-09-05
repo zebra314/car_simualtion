@@ -11,7 +11,7 @@ s.close()
 
 # Write local ip to local_ip.js
 current_directory = os.path.dirname(os.path.realpath(__file__))
-relative_path = "../rosboard/html/module/local_ip.js"
+relative_path = "../rosboard/html/js/local_ip.js"
 file_path = os.path.join(current_directory, relative_path)
 
 with open (file_path, "w") as f:

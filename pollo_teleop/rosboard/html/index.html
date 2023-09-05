@@ -1,45 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+    <head>
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="css/material-icons.css" media="all" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="></script>
+        <link rel="stylesheet" href="css/material.indigo-blue.min.css" />
+        <link rel="stylesheet" href="css/uPlot.min.css">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/joystick.css">
+        <link href="css/index.css" media="all" rel="stylesheet" type="text/css">
+        
+        <script type="text/javascript" src="js/json5.min.js"></script>
+        <script type="text/javascript" src="js/uPlot.iife.min.js"></script>
+        <script type="text/javascript" src="js/jquery.transit.min.js"></script>
+        <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="js/eventemitter2.min.js"></script>
+        <script text="text/javascript" src="js/import-helper.js"></script>
+        <script type="text/javascript" src="js/material.min.js" defer></script>
+        <script type="text/javascript" src="js/leaflet.js"></script>        
+	      <script type="text/javascript" src="js/gl-matrix.js"></script>
+	      <script type="text/javascript" src="js/litegl.min.js"></script>
+        <script type="text/javascript" src="js/index.js" defer></script>
+        <script type="module" src="js/joystick.js"></script>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="module" src="module/main.js"></script>
-  <script type="module" src="module/nipplejs.js"></script>
-  <script type="module" src="module/roslib.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/slider.css">
-  <link rel="stylesheet" type="text/css" href="css/joystick.css">
-  <link rel="stylesheet" type="text/css" href="css/joystick.css">
-</head>
+        <title>ROSboard</title>
+    </head>
+    <body>
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+              <!-- Title -->
+              <span class="mdl-layout-title">ROSboard</span>
+              <!-- Add spacer, to align navigation to the right -->
+              <div class="mdl-layout-spacer"></div>
+            </div>
+          </header>
+          <div class="mdl-layout__drawer">
+            <nav id="topics-nav" class="mdl-navigation">
+                <div id="topics-nav-system-title" class="topics-nav-title">System</div>
+                <div id="topics-nav-system"></div>
+                <div id="topics-nav-ros-title" class="topics-nav-title">ROS topics</div>
+                <div id="topics-nav-ros"></div>
+                <div style="opacity:0.3;" id="topics-nav-unsupported"></div>
+            </nav>
+          </div>
 
-<body>
-  <h1>Simple ROS User Interface</h1>
-  <p>Connection status: <span id="status"></span></p>
-
-  <div id="joystickPage">
-    <button id="joystickPage_btn">切换到個別控制</button>
-    <div id="zone_joystick" style="position: relative;"></div>
+          <main class="mdl-layout__content">
+            <div class="page-content">
+              <div id="joystickPage">
+                <div id="zone_joystick"></div>
+              </div>
+              <div class="grid">
+              </div>
+            </div>
+          </main>
+        </div>
+        
+  <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
   </div>
 
-  <div id="sliderPage">
-    <button id="sliderPage_btn">切换到總控制</button>
-    <div id="zone_slider" style="position: relative;">
-      <div id="slider1">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-      <div id="slider2">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-      <div id="slider3">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-      <div id="slider4">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-    </div>
-  </div>
-
-</body>
-
+    </body>
 </html>
