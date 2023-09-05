@@ -1,0 +1,21 @@
+.joystickPage {
+  /* 定義joystickPage的樣式 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 使joystickPage占滿整個視窗高度 */
+}
+
+.zone_joystick {
+  /* 定義搖桿區域的樣式 */
+  width: 100px; /* 設定寬度 */
+  height: 100px; /* 設定高度 */
+  background-color: #3498db; /* 設定背景顏色 */
+  position: absolute; /* 設定位置為絕對定位 */
+  top: 50%; /* 垂直位置置中 */
+  left: 50%; /* 水平位置置中 */
+  transform: translate(-50%, -50%); /* 使用transform移動至中心 */
+  border-radius: 50%; /* 設定圓角以創建圓形 */
+  /* 其他樣式設定，例如邊框、陰影等 */
+}
+
