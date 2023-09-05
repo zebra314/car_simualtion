@@ -4,19 +4,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <script type="text/javascript" src="include/nipplejs.js"></script>
-  <script type="text/javascript" src="include/roslib.js"></script>
-  <script type="module" src="include/local_ip.js"></script>
-  <script type="module" src="include/joystickControl.js"></script>
-  <script type="module" src="include/rosConnection.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="module/main.js"></script>
+  <script type="module" src="module/nipplejs.js"></script>
+  <script type="module" src="module/roslib.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/slider.css">
+  <link rel="stylesheet" type="text/css" href="css/joystick.css">
+  <link rel="stylesheet" type="text/css" href="css/joystick.css">
 </head>
 
 <body>
   <h1>Simple ROS User Interface</h1>
   <p>Connection status: <span id="status"></span></p>
-  <p>Last message on /txt_msg: <span id="msg"></span></p>
-  <div id="zone_joystick" style="position: relative;"></div>
+
+  <div id="joystickPage">
+    <button id="joystickPage_btn">切换到個別控制</button>
+    <div id="zone_joystick" style="position: relative;"></div>
+  </div>
+
+  <div id="sliderPage">
+    <button id="sliderPage_btn">切换到總控制</button>
+    <div id="zone_slider" style="position: relative;">
+      <div id="slider1">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+      <div id="slider2">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+      <div id="slider3">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+      <div id="slider4">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
