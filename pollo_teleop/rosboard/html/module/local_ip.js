@@ -1,0 +1,1 @@
+export let local_ip = "192.168.120.148";
