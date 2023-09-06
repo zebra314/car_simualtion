@@ -37,6 +37,7 @@ A ROS package for simulating a mobile robot with four wheels in Gazebo.
     sudo apt-get install ros-$ROS_DISTRO-amcl    
     sudo apt-get install ros-$ROS_DISTRO-move-base 
     sudo apt-get install ros-$ROS_DISTRO-map-server   
+    sudo apt-get install ros-$ROS_DISTRO-rosbridge-server     
     pip install qrcode_terminal
     pip install tornado
 ```   
