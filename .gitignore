@@ -50,7 +50,7 @@ logs
 docs/plots
 .vscode
 .pio
-pollo_teleop/rosboard/html/include/local_ip.js
+pollo_teleop/rosboard/html/js/local_ip.js
 
 # intermediate documentation
 site
