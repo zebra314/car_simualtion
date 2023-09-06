@@ -70,7 +70,7 @@ Visualization Manager:
           Value: true
         chassis:
           Value: true
-        hokuyo_link:
+        laser_link:
           Value: true
         map:
           Value: true
@@ -95,7 +95,7 @@ Visualization Manager:
                   {}
                 RF_wheel:
                   {}
-                hokuyo_link:
+                laser_link:
                   {}
       Update Interval: 0
       Value: true
@@ -138,7 +138,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        hokuyo_link:
+        laser_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false

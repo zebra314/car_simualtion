@@ -1,6 +1,6 @@
 lidar:
-  hokuyo:
-    msh: 'package://pollo_description/meshes/hokuyo.dae'
+  laser:
+    msh: 'package://pollo_description/meshes/laser.dae'
     x: 0
     y: 0
     z: 0.05  

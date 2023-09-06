@@ -69,7 +69,7 @@ Visualization Manager:
           Value: true
         footprint:
           Value: true
-        hokuyo_link:
+        laser_link:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -87,7 +87,7 @@ Visualization Manager:
               {}
             RF_wheel:
               {}
-            hokuyo_link:
+            laser_link:
               {}
       Update Interval: 0
       Value: true
@@ -130,7 +130,7 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        hokuyo_link:
+        laser_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
