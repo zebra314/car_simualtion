@@ -9,10 +9,6 @@
 	<!-- Load controllers -->
 	<include file="$(find pollo_control)/launch/control.launch" />
 
-	<!-- Load the URDF into the ROS Parameter Server -->
-	<param name="robot_description" command="$(find xacro)/xacro 
-	'$(find pollo_description)/urdf/pollo.xacro'" />
-
 	<!-- World -->
 	<include file="$(find pollo_gazebo)/launch/world.launch" />
 
@@ -21,7 +17,6 @@
 		args="-urdf -model pollo -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" />
 
 	<!-- Spawn obstacles -->
-	<include file="$(find pollo_gazebo)/launch/obstacle.launch" 
-		if="$(arg obstacle)"/>
+	<include file="$(find pollo_gazebo)/launch/obstacle.launch" if="$(arg obstacle)"/>
 
 </launch>
