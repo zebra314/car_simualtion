@@ -1,4 +1,5 @@
 <launch>
+    <arg name="sim" default="false" />
     <arg name="scan_topic"  default="/pollo/laser/scan" />
     <arg name="base_frame"  default="chassis"/>
     <arg name="odom_frame"  default="odom"/>
@@ -42,4 +43,11 @@
       <param name="lasamplestep" value="0.005"/>
       <remap from="scan" to="$(arg scan_topic)"/>
     </node>
+
+    <!-- Launch the tf_static_transform_publisher node -->
+    <node pkg="tf" type="static_transform_publisher" name="map2odom" args="0.0 0.0 0.0 0.0 0.0 0.0 map odom 100"
+      unless="$(arg sim)" />
+    <node pkg="tf" type="static_transform_publisher" name="odom2footprint" args="0.0 0.0 0.0 0.0 0.0 0.0 odom footprint 100"
+      unless="$(arg sim)" />
+   
   </launch>
