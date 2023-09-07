@@ -3,11 +3,7 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Global Options1
-        - /Status1
-        - /Grid1
-        - /LaserScan1
+      Expanded: ~
       Splitter Ratio: 0.5
     Tree Height: 555
   - Class: rviz/Selection
@@ -66,9 +62,9 @@ Visualization Manager:
           Value: true
         RF_wheel:
           Value: true
-        footprint:
-          Value: true
         chassis:
+          Value: true
+        footprint:
           Value: true
         laser_link:
           Value: true
@@ -129,15 +125,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         chassis:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         laser_link:
           Alpha: 1
           Show Axes: false
@@ -208,7 +204,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: footprint
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -232,7 +228,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 7.598546981811523
+      Distance: 14.998184204101562
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -240,17 +236,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.7538872361183167
-        Y: -1.9622490406036377
-        Z: 3.1686327019997407e-06
+        X: 3.9115796089172363
+        Y: -0.6057896614074707
+        Z: 6.029655651218491e-06
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5703984498977661
+      Pitch: 0.8703981637954712
       Target Frame: footprint
-      Yaw: 4.72175931930542
+      Yaw: 4.711759090423584
     Saved: ~
 Window Geometry:
   Displays:
