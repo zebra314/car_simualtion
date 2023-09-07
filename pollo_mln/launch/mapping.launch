@@ -1,0 +1,15 @@
+<launch>
+  <arg name="sim" default="false" />
+
+  <!-- <include file="$(find pollo_mln)/launch/include/gmapping.launch"/> -->
+
+  <!-- Publish odom to tf -->
+  <include file="$(find pollo_mln)/launch/include/hector_mapping.launch"/>
+
+  <!-- Launch the tf_static_transform_publisher node -->
+  <node pkg="tf" type="static_transform_publisher" name="odom2footprint" args="0.0 0.0 0.0 0.0 0.0 0.0 odom footprint 100"
+    unless="$(arg sim)" />
+
+  <!-- Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_mln)/rviz/gmapping.rviz" />
+</launch>
