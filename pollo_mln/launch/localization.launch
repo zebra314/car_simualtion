@@ -1,21 +1,27 @@
 <launch>
-
-    <!-- Init pose -->
-    <arg name="x" default="0"/>
-    <arg name="y" default="0"/>
-    <arg name="z" default="0.3"/>
-    <arg name="yaw" default="1.5708"/>
-    <arg name="rviz" default="true"/>
-    
-    <!-- Rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_mln)/rviz/amcl.rviz" 
-      if="$(arg rviz)"/>
-
-    <!-- AMCL -->
-    <include file="$(find pollo_mln)/launch/include/amcl.launch" >
-      <arg name="initial_pose_x" value="$(arg x)" />
-      <arg name="initial_pose_y" value="$(arg y)" />
-      <arg name="initial_pose_a" value="$(arg yaw)" />
-    </include>
+  <!-- Init pose -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.3"/>
+  <arg name="yaw" default="1.5708"/>
+  <arg name="rviz" default="true"/>
+  <arg name="sim" default="false" />
   
+  <!-- Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find pollo_mln)/rviz/amcl.rviz" 
+    if="$(arg rviz)"/>
+  
+  <!-- Publish odom to tf -->
+  <include file="$(find pollo_mln)/launch/include/hector_mapping.launch" unless="$(arg sim)">
+    <arg name="pub_map_odom_transform" value="false"/>
+  </include>
+
+  <!-- AMCL -->
+  <include file="$(find pollo_mln)/launch/include/amcl.launch" >
+    <arg name="sim" value="$(arg sim)"/>
+    <arg name="initial_pose_x" value="$(arg x)" />
+    <arg name="initial_pose_y" value="$(arg y)" />
+    <arg name="initial_pose_a" value="$(arg yaw)" />
+  </include>
+
 </launch>
