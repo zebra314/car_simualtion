@@ -3,7 +3,7 @@
   <arg name="teleop" default="true" />
   <arg name="method" default="web" /> <!-- method = gui, joystick, keyboard -->
   <arg name="sensor" default="true" />
-  <arg name="sim" default="false" />
+  <arg name="sim" default="true" />
 
   <!-- Arguments for simulation -->
   <!-- <arg name="x" default="0.3"/>
